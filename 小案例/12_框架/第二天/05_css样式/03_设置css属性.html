@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding: 15px;}
+        p{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <p>魔兽世界</p>
+    <p>王者荣耀</p>
+</div>
+
+<script src="../practice.js"></script>
+<script>
+    /*$$.css('p', 'display', 'none');*/
+
+    // 设置
+    $$.css('p', 'color', 'yellow');
+
+    $$.css('p', 'opacity', '0.2');
+
+    // 获取
+    console.log($$.css('p', 'color'));
+</script>
+</body>
+</html>

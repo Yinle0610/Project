@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	.box{
+		width: 512px;
+		height: 400px;
+		position: relative;
+		margin: 100px auto;
+		overflow: hidden;
+		border: 1px solid red;
+	}
+	.box span{
+		width: 100%;
+		height: 200px;
+		position: absolute;
+		left:0;
+		cursor: pointer;
+	}
+	#top{
+		top: 0;
+	}
+	#down{
+		bottom: 0;
+	}
+	#mi{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<img src="images/mi.png" alt="" id="mi"/>
+		<span id="top"></span>
+		<span id="down"></span>
+	</div>
+</body>
+</html>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	var num=0;
+	var timer=null;
+	// 图片自动上滑
+	$("top").onmouseover=function(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			num-=3;
+			num>=-1070?$("mi").style.top=num + "px":clearInterval(timer);
+		},30);
+	}
+	// 图片自动下滑
+	$("down").onmouseover=function(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			num++;
+			num<0?$("mi").style.top=num + "px":clearInterval(timer);
+		}, 30)
+	}
+	// $("box").onmouseout=function()
+	$("top").parentNode.onmouseout=function()
+	{
+		clearInterval(timer);
+	}
+</script>

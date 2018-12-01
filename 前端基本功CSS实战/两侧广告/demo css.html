@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0}
+        img{
+            vertical-align: top;
+        }
+        .main{
+            margin:0 auto;
+            width:1000px;
+            margin-top:10px;
+
+        }
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .aside{
+            position: absolute;
+            left: 0;
+            top: 230px;
+        }
+        .Top{
+            position: fixed;
+            right:50px;
+            bottom:100px;
+            display: none;
+        }
+    </style>
+    <script src="my.js" type="text/javascript"></script>
+    <script>
+        window.onload = function() {
+            var goTop = $("gotop");
+            var navs = $("Q-nav");
+            var navsTop = navs.offsetTop;
+            console.log(navsTop);
+            var pic = $("pic");
+            var top = pic.offsetTop;
+            var target = 0;
+            var leader = 0;
+            var timer = null;
+            window.onscroll = function () {
+                if (scroll().top > navsTop) {
+                    navs.className = "nav fixed";
+                    navs.onclick = function () {
+                        navs.className = "nav";
+                        navs.style.position = "static";
+                    }
+                }
+                else {
+                    navs.className = "nav";
+                }
+                clearInterval(timer);
+                target = scroll().top + top;
+                timer = setInterval(function () {
+                    leader = leader + (target - leader) / 10;
+                    pic.style.top = leader + "px";
+                }, 30);
+
+                // 返回顶部
+                scroll().top > 0 ? goTop.style.display="block" : goTop.style.display="none";  // 如果大于0 就显示 否则隐藏
+                leader = scroll().top;
+                console.log(scroll().top);
+                var leader1 = 0, target1 =0, timer1 =null;
+                goTop.onclick = function() {
+                    timer1 = setInterval(function () {
+                        leader1 = leader1 + (target1 - leader1) / 10;
+                        window.scrollTo(0, leader1);
+                        if (leader1 == target1) {
+                            clearInterval(timer1);
+                        }
+                    }, 30)
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<img class="aside" src="images/aside.jpg" alt="" id="pic"/>
+<div class="top" id="top">
+    <img src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="Q-nav">
+    <img src="images/nav.png" alt=""/>
+</div>
+<div class="main">
+    <img src="images/main.png" alt=""/>
+</div>
+<div class="Top" id="gotop">
+    <img src="images/Top.jpg" alt=""/>
+</div>
+</body>
+</html>
+<script>
+
+
+</script>

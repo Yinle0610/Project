@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="practice.js"></script>
+</head>
+<body>
+<div id="div"></div>
+<script>
+    // var div = $$.$id('div');
+    /*div.addEventListener('click', function () {
+        this.style.background = 'blue';
+    });*/
+    click('div', function () {
+        this.style.background = 'blue';
+    });
+
+    function click(id, fn){
+        $$.on(id, 'click', fn);
+    }
+
+  /*  $$.mouseover('div', function () {
+        this.style.background = 'red';
+    });
+
+    $$.mouseout('div', function () {
+        this.style.background = 'pink';
+
+    });*/
+
+    $$.hover('div', function () {
+        this.style.background = 'red';
+    }, function () {
+        this.style.background = 'pink';
+    })
+</script>
+</body>
+</html>

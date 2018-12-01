@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            left: 0;
+            position: absolute;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始</button>
+<div id="div">
+
+</div>
+</body>
+</html>
+<script>
+    var div = document.getElementById("div");
+    var btn = document.getElementById("btn");
+    var timer = null;
+    var target = 400 ;
+    btn.onclick = function() {
+        timer = setInterval(function(){
+            var step = ( target - div.offsetLeft )/ 10;
+            step = step >0?  Math.ceil(step) : Math.floor(step);
+            div.style.left = div.offsetLeft + step + "px";
+            if(div.offsetLeft == target){
+                alert("到位置了");
+                clearInterval(timer);
+            }
+        },20)
+    }
+</script>

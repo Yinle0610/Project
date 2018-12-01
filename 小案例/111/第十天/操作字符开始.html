@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="txt1">what's your name?</div>
+	<div id="txt2">my name is lina!</div>
+	<button id="concat">concat()</button><span></span><br/>
+	<!--  连接字符concat   -->
+	<button id="slice">slice()</button><span></span><br/>
+	<!--  截取字符slice   -->
+	<button id="slice1">slice()</button><span></span><br/>
+	<button id="slice2">slice()</button><span></span><br/>
+	<!--  默认起始位置开始截取substr() -->
+	<button id="substr">substr()</button><span></span><br/>
+	<button id="substr1">substr1()</button><span></span><br/>
+	<button id="substr2">substr2()</button><span></span><br/>
+</body>
+</html>
+<script>
+		var txt1=document.getElementById("txt1").innerHTML;
+		var txt2=document.getElementById("txt2").innerHTML;
+		function onBtnclick(id,txt){
+			document.getElementById(id).onclick=function(){
+				this.nextSibling.innerHTML=txt;
+			}
+		}
+		onBtnclick("concat",txt1.concat(txt2));
+		onBtnclick("slice",txt1.slice(3));
+		// 第3位和第8位不包括在内取中间的
+		// 起始位置可以为负数  如果是负数就是从右边开始数
+		onBtnclick("slice1",txt1.slice(3,8));
+		onBtnclick("slice2",txt1.slice(-1));
+		// 从第三位开始取6位
+		onBtnclick("substr",txt1.substr(3,6));
+		// substr取负数时 IE 678会报错
+		onBtnclick("substr1",txt1.substr(-1,1));
+		// 兼容写法
+		onBtnclick("substr2",txt1.substr(txt1.length-1,1));
+</script>

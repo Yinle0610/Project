@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        div{
+            width: 330px;
+            height: 50px;
+            background-color: goldenrod;
+            margin: 100px auto;
+            padding-left: 10px;
+        }
+        ul li{
+            list-style: none;
+        }
+        .demo ul li{
+            float: left;
+        }
+        .demo li {
+            width: 100px;
+            background-color: gold;
+            line-height: 50px;
+            text-align: center;
+            margin-right: 10px;
+        }
+        .demo li ul{
+            display: none;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".demo li").mouseenter(function () {
+                // stop 有两个参数
+                // 第一个参数表示是否清除后面的动画，默认为false
+                // 为true就立即停止，不进行后面的动画
+                $(this).children("ul").stop(false,true).show(1000);
+            });
+            $(".demo li").mouseleave(function () {
+                $(this).children("ul").stop(false,true).hide(1000);
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="demo">
+    <ul>
+        <li>菜单1
+            <ul>
+                <li>菜单01</li>
+                <li>菜单01</li>
+                <li>菜单01</li>
+            </ul>
+        </li>
+        <li>菜单2
+            <ul>
+                <li>菜单01</li>
+                <li>菜单01</li>
+                <li>菜单01</li>
+            </ul>
+        </li>
+        <li>菜单3
+            <ul>
+                <li>菜单01</li>
+                <li>菜单01</li>
+                <li>菜单01</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

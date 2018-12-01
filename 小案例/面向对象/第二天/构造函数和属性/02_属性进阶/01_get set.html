@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="itemInfo">
+    <div id="name">
+        <h1 id='pname'>乐视TV（ Letv） S50 Air 全配版 50英寸2D智能LED液晶 超级电视</h1>
+        <div id="pdes">各地区货源已陆续到库，我们将在十月十号左右发货，对于此次延迟发货给您带来的不便表示致歉，望您谅解。</div>
+        <div >已售：<strong id="psales">6000</strong></div>
+        <div>原价：<strong id='pprice'>6000</strong>元</div>
+        <div>优惠价：<strong id='pyouhui'>5000</strong>元</div>
+        <div>折扣：<strong id='pzhekou'>6.0</strong>折</div>
+        <div>生产日期：<strong id='date'>2015-09-09</strong></div>
+    </div>
+</div>
+<button id='btn'>加入购物车</button>
+</body>
+</html>
+<script>
+    // 日期格式定义
+    function dateFormat(date,format) {
+        var o = {
+            "M+" : date.getMonth()+1, //month
+            "d+" : date.getDate(),    //day
+            "h+" : date.getHours(),   //hour
+            "m+" : date.getMinutes(), //minute
+            "s+" : date.getSeconds(), //second
+            "q+" : Math.floor((date.getMonth()+3)/3),  //quarter
+            "S" : date.getMilliseconds() //millisecond
+        }
+        if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+                (date.getFullYear()+"").substr(4- RegExp.$1.length));
+        for(var k in o)if(new RegExp("("+ k +")").test(format))
+            format = format.replace(RegExp.$1,
+                    RegExp.$1.length==1? o[k] :
+                            ("00"+ o[k]).substr((""+ o[k]).length));
+        return format;
+    }
+
+    function Product(name, price){
+        this.name = name;
+        this.price = 0;
+        this.zhekou = '';
+        this.sales = '';
+        this.description = '';
+        this.productDate;
+        /* 我们的需求：  自动计算打折后的价格 */
+        Object.defineProperty(this, 'price', {
+            /* 设置固定值  在外部无法改变*/
+            value : 500000,
+            writable : false
+           /* get: function () {
+                return price * 0.6;
+            },
+            set: function (value) {
+                /!* 大概普通产品的价格都在0--1万之间 *!/
+                if(value > 10000){
+                    alert("产品价格必须在0--1万之间")
+                }else{
+                    price = value;
+                }*/
+
+        });
+        // 添加一个属性包装器
+        Object.defineProperty(this, "productDate", {
+            get: function () {
+                return productDate.toLocaleDateString();
+                // return productDate.toLocaleString();
+            },
+            set: function (value) {
+                productDate = value;
+            }
+        })
+    };
+
+    Product.prototype = {
+        getPrice: function () {
+            return this.price;
+        },
+        addToCart: function () {
+            alert('将物品添加至购物车');
+            
+        }
+    };
+
+    var btn = document.getElementById('btn');
+    var name = document.getElementById('pname');
+    var price = document.getElementById('pprice');
+    var sum = document.getElementById('sum');
+    var des = document.getElementById('pdes');
+    var youhuijia = document.getElementById('pyouhui');
+    var zhekou = document.getElementById('pzhekou');
+    var sales = document.getElementById('psales');
+    var date = document.getElementById('date');
+
+    window.onload = function () {
+        var product = new Product();
+        product.name = 'iphone8s';
+        product.price = 60000;
+        product.zhekou = 6.0;
+        product.sales = 36000;
+        product.youhuijia = 3000;
+        product.description = '垃圾中的 战斗机';
+        product.productDate = new Date();
+
+
+        name.innerHTML = product.name;
+        price.innerHTML = product.price;
+        des.innerHTML = product.description;
+        youhuijia.innerHTML = product.youhuijia;
+        zhekou.innerHTML = product.zhekou;
+        sales.innerHTML = product.sales;
+        date.innerHTML = product.productDate;
+
+
+        /*绑定事件*/
+        btn.onclick = function(){
+            product.addToCart()
+        }
+    }
+
+</script>

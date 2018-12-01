@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            // on  绑定事件
+            $("ul").on("click","li:eq(2)", function () {
+                alert($(this).html());
+            });
+            // off 解绑
+            $("ul").off("click");
+            // one 事件只触发一次
+            $("ul").one("click","li:eq(3)", function () {
+                alert($(this).html());
+            });
+            // 给一个元素 bind 绑定两个事件
+            $("button").bind({"click":function (){
+                alert ("我是click事件")
+            },
+                "mouseenter": function () {
+                alert("我是mouseenter事件")
+                }
+        });
+            // unbind 解除绑定
+            $("button").unbind("click");
+
+        })
+    </script>
+</head>
+<body>
+<button>你好啊 </button>
+<ul>
+    <li>我是li1</li>
+    <li>我是li2</li>
+    <li>我是li3</li>
+    <li>我是li4</li>
+    <li>我是li5</li>
+    <li>我是li6</li>
+</ul>
+</body>
+</html>

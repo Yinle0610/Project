@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin:0;padding:0;}
+	.box{
+		height: 180px;
+		width: 190px;
+		margin: 100px auto;
+		border: 1px solid #999;
+		overflow: hidden;
+	}
+	.message ul{
+		list-style: none;
+	}
+	.message  li{
+		width: 100%;
+		display: none;
+	}
+	.xuanx span{
+		line-height: 30px;
+		cursor: pointer;
+		margin-left: 10px;
+		display: inline-block;
+	}
+	.xuanx span.beijin{
+		background-color: pink;
+	}
+	.message li.tp{
+		display: block;
+	}
+	</style>
+	<script>
+	window.onload=function(){
+		function tab(obj){
+			var target=document.getElementById(obj);
+			var btns=target.getElementsByTagName("span");
+			var lis=target.getElementsByTagName("li");
+			for(i=0;i<btns.length;i++){
+				btns[i].num=i;
+				btns[i].onmouseover=function(){
+					for(j=0;j<btns.length;j++){
+						btns[j].className="";
+						lis[j].className="";
+					}
+					this.className="beijin";
+					lis[this.num].className="tp";
+				}
+			}
+		}
+		tab("one");
+		tab("two");
+		tab("three");
+	}
+		</script>
+</head>
+<body>
+	<div class="box" id="one">
+		<div class="xuanx" >
+			<span class="beijin">第一个</span>
+			<span>第二个</span>
+			<span>第三个</span>
+		</div>
+		<div class="message">
+			<ul>
+				<li class="tp"><img src="images/1_190x150.jpg"></li>
+				<li><img src="images/2_190x150.jpg"></li>
+				<li><img src="images/3_190x150.jpg"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="box" id="two">
+		<div class="xuanx" >
+			<span class="beijin">第一个</span>
+			<span>第二个</span>
+			<span>第三个</span>
+		</div>
+		<div class="message">
+			<ul>
+				<li class="tp"><img src="images/1_190x150.jpg"></li>
+				<li><img src="images/2_190x150.jpg"></li>
+				<li><img src="images/3_190x150.jpg"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="box" id="three">
+		<div class="xuanx" >
+			<span class="beijin">第一个</span>
+			<span>第二个</span>
+			<span>第三个</span>
+		</div>
+		<div class="message">
+			<ul>
+				<li class="tp"><img src="images/1_190x150.jpg"></li>
+				<li><img src="images/2_190x150.jpg"></li>
+				<li><img src="images/3_190x150.jpg"></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

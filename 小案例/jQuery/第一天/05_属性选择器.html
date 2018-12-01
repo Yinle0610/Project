@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          //  $("a[href]").css("color","pink");
+            // [attr!=value]
+          //  $("a[href!='http://www.baidu.com']").css("color","pink");
+            // [attr=value]
+            // $("a[href='http://www.baidu.com']").css("color","pink");
+            //  [attr^=value] 以什么开头
+            //  $("a[href^='http']").css("color","pink");
+            // [attr$=value] 以什么结尾
+            // $("a[href$='cn']").css("color","pink");
+            // [attr*=value] 包含该字符
+            // $("a[href*='i']").css("color","pink");
+        })
+    </script>
+</head>
+<body>
+<div class="divItem">
+<a href="http://www.baidu.com">百度</a>
+<a href="http://web.itcast.cn">前端移动</a>
+<a href="http://sina.com.cn">新浪</a>
+    <a>我没有href</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+<canvas id="cavsElem">
+
+</canvas>
+</div>
+<script>
+    (function(){
+        var canvas = document.querySelector('#cavsElem');
+        var ctx = canvas.getContext('2d');
+        var rows = 60, columns = 90, rectSize = 10;
+        canvas.width = 900;
+        canvas.height = 600;
+        canvas.style.border = "1px solid #000";
+
+        ctx.beginPath();
+
+        //绘制所有的行
+        for(var i = 0; i < rows; i++) {
+            ctx.moveTo(0,i*rectSize);
+            ctx.lineTo(columns*rectSize , i*rectSize);
+        }
+
+        //绘制所有的列
+        for(var i = 0; i < columns; i++) {
+            ctx.moveTo(i*rectSize,0);
+            ctx.lineTo(i*rectSize,rows*rectSize );
+        }
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = .5;
+
+        ctx.stroke();
+    }());
+
+</script>
+</body>
+</html>

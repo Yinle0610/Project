@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           // $("#u").css("background-color","red");
+            $(".li01 + li").css("background-color","red");
+        })
+    </script>
+</head>
+<body>
+<div>
+    <ul>
+        <li>兄弟很多01
+        <ul id="u">
+            <li class="li01">儿子很多01</li>
+            <li>儿子很多02</li>
+            <li>儿子很多03</li>
+        </ul>
+        </li>
+        <li>兄弟很多02</li>
+        <li>兄弟很多03</li>
+        <li>兄弟很多04</li>
+        <li>兄弟很多05</li>
+        <li>兄弟很多06</li>
+        <li>兄弟很多07</li>
+        <li>兄弟很多08</li>
+    </ul>
+</div>
+</body>
+</html>

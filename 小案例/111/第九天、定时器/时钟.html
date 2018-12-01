@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	.box{
+		height: 600px;
+		width: 600px;
+		margin: 100px auto;
+		background: url(images/clock.jpg)  no-repeat;
+		position: relative;
+	}
+	.box div{
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		position: absolute;
+
+	}
+	</style>
+</head>
+<body>
+	<div id="box" class="box">	
+		<div id="hour" class="h" ></div>
+		<div id="minute" class="m"></div>
+		<div id="second" class="s"></div>
+	</div>
+</body>
+</html>
+<script>
+	var box=document.getElementById("box");
+	box.children[0].style.background="url(images/hour.png) center center no-repeat" ;
+	box.children[1].style.background="url(images/minute.png) center center no-repeat" ;
+	box.children[2].style.background="url(images/second.png) center center no-repeat" ;
+	var hour=document.getElementById("hour");
+	var minute=document.getElementById("minute");
+	var second=document.getElementById("second");
+	var s=0,h=0,m=0,ms=0;
+	setInterval(function(){
+		var date=new Date();
+		ms=date.getMilliseconds();
+		s=date.getSeconds()+ms/1000;
+		m=date.getMinutes()+s/60;
+		h=date.getHours()%12+m/60;
+		//alert(h+"小时"+m+"分钟"+s+"秒");
+		second.style.WebkitTransform="rotate("+ s*6 +"deg)";
+		//rotate（）  旋转(多少度)
+		minute.style.WebkitTransform="rotate("+ m*6 +"deg)";
+		hour.style.WebkitTransform="rotate("+ h*30 +"deg)";
+	}
+	, 1000)
+</script>

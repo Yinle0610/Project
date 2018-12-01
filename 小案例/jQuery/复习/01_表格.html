@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+    </style>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            var data = [{
+                name:"传智播客",
+                url:"http://www.itcast.cn",
+                type:"IT最强培训机构"
+            },
+                {
+                name:"黑马程序员",
+                url:"http://www.itheima.com",
+                type:"IT最强培训机构"
+            },{
+                name:"传智播客前端学院",
+                url:"http://www.itcast.cn",
+                type:"前端的黄埔军校"
+            }]
+        })
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="2">第一行</td>
+
+        <td rowspan="3">第一行</td>
+    </tr>
+    <tr>
+        <td>第二行</td>
+
+        <td>第二行</td>
+    </tr>
+    <tr>
+        <td>第三行</td>
+        <td>第三行</td>
+        <!--<td>第三行</td>-->
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            position: relative;
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            overflow: scroll;
+        }
+        div p{
+            width: 2000px;
+            height: 2000px;
+        }
+    </style>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            $("button:eq(0)").click(function () {
+                console.log($("div").scrollTop());
+                    }
+            );
+            var i = 0;
+            $("button:last").click(function () {
+                i+=100;
+                $("div").scrollTop(i);
+                $("div").scrollLeft(i);
+
+            })
+        })
+    </script>
+</head>
+<body>
+<button>获取滚动条位置</button>
+<button>设置滚动条位置</button>
+<div>
+    <p></p>
+</div>
+</body>
+</html>

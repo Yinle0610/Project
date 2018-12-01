@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0}
+        body {
+            background: url(images/1.jpg) top center;
+        }
+        .box {
+            height: 150px;
+            background: rgba(255,255,255,.3);
+            text-align: center;
+            padding-top:50px;
+        }
+        .box img {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /*要做事，先找人*/
+            var pic1 = document.getElementById("pic1");
+            var pic2 = document.getElementById("pic2");
+            var pic3 = document.getElementById("pic3");
+            var pic4 = document.getElementById("pic4");
+            var pic5 = document.getElementById("pic5");
+            pic1.onclick = function(){
+                document.body.style.backgroundImage = "url(images/1.jpg)";
+            }
+            pic2.onclick = function(){
+                document.body.style.backgroundImage = "url(images/2.jpg)";
+            }
+            pic3.onclick = function(){
+                document.body.style.backgroundImage = "url(images/3.jpg)";
+            }
+            pic4.onclick = function () {
+                document.body.style.backgroundImage = "url(images/4.jpg)";
+            }
+            pic5.onclick = function () {
+                document.body.style.backgroundImage = "url(images/5.jpg)";
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="yc" value="隐藏">隐藏</button>
+<div class="box" id="box">
+    <img src="images/1.jpg" alt="" width="150" id="pic1"/>
+    <img src="images/2.jpg" alt="" width="150" id="pic2"/>
+    <img src="images/3.jpg" alt="" width="150" id="pic3"/>
+    <img src="images/4.jpg" alt="" width="150" id="pic4"/>
+    <img src="images/5.jpg" alt="" width="150" id="pic5"/>
+</div>
+<script>
+    var box=document.getElementById("box");
+    var yc=document.getElementById("yc");
+    yc.onclick = function(){
+
+    box.style.display="none";
+}
+//隐藏图片。
+</script>
+</body>
+</html>

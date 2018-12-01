@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>点击</button>
+	<ul id="ul">
+		
+	</ul>
+	<script type="text/javascript">
+	var ul=document.getElementById("ul");
+	var btn=document.getElementsByTagName("button")[0];
+	btn.onclick=function(){
+		//创建新节点
+		var lis=document.createElement("li");
+		lis.innerHTML="你好";
+		//插入节点
+		ul.appendChild(lis);//子节点放在父亲的最后面
+		ul.parentNode.appendChild(ul.cloneNode());
+		//同一父类里克隆的ul
+	}
+	</script>
+</body>
+</html>

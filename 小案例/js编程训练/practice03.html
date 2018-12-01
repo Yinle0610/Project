@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 人民币符号 -->
+	<p>&yen</p>
+	<script>
+	/* arr = [1,2,3,4,5,6,7,8,9]
+	从数组中每次取出3个数，如123,456,789,123,456,789依次循环下去
+	*/
+	window.onload = function(){
+		// 声明数组arr
+		var arr = [1,2,3,4,5,6,7,8,9];
+		// 声明一个新Arr来装新的数组
+		var newArr = []; 
+		// for循环遍历数组arr
+		for(var i = 0; i < arr.length; i++){
+		// 每次取3个数 判断数的个数能否被3整除
+			if( i % 3 == 0 ){
+				if( i + 3 < arr.length){
+					newArr.push(arr.slice(i , i+3));
+				}else{
+					newArr.push(arr.slice(i , arr.length).concat(arr.slice(0 , i + 3 - arr.length)));
+				}
+			}
+		}
+
+		var num = 0; max = 3;
+
+		function type(){
+			num ++;
+			newArr.forEach(function(item, index, newArr){
+				console.log(num +'次'+item.join());
+			});
+			if(num < max){
+				setTimeout(type, 500);
+			}else{
+				alert('done');
+			}
+		}
+		setTimeout(type, 500);
+	}
+	</script>
+</body>
+</html>

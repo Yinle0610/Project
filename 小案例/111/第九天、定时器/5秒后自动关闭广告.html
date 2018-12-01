@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	img{
+		top:0;
+		position: absolute;
+	}
+	#left{
+		left: 0;
+	}
+	#right{
+		right: 0;
+	}
+	</style>
+</head>
+<body>
+	<img src="images/left.gif" id="left">
+	<img src="images/right.gif" id="right">
+	<p>天王盖地虎，陈果二百五</p>
+	<p>天王盖地虎，陈果二百五</p>
+	<p>天王盖地虎，陈果二百五</p>
+	<p>天王盖地虎，陈果二百五</p>
+	<p>天王盖地虎，陈果二百五</p>
+	<p>天王盖地虎，陈果二百五</p>
+	<p>天王盖地虎，陈果二百五</p>
+	<p>天王盖地虎，陈果二百五</p>
+	<p>天王盖地虎，陈果二百五</p>
+	<p>天王盖地虎，陈果二百五</p>
+	<p>天王盖地虎，陈果二百五</p>
+	<p>天王盖地虎，陈果二百五</p>
+</body>
+</html>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	function hid(id){
+		$(id).style.display="none";
+	}
+	setTimeout(closeAD,5000);
+	function closeAD(){
+		hid("left");
+		hid("right");
+	}
+</script>

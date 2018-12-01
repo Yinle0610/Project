@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 创建对象的方法
+    // 第一种：json的方式创建对象
+    // var o = { key : value};
+    // var array = [1, 2, 3, {}];
+    // 一般使用与后台获取数据
+    var o = {
+        name : "Yinle",
+        age : 22,
+        sayHi : function () {
+            console.log("name:"+ this.name +' '+this.age);
+        }
+    };
+    // o.sayHi();
+    // 缺点： 不能把json对象当成一个模板，不能通过new操作来创建一个新对象，
+    // 给json对象添加属性
+    o.color = 'red';// javascript是一个动态语言
+    // 给json对象添加方法
+    o.show = function () {
+    };
+
+    // 第二种：通过object来创建对象
+    var o2 = new Object();
+    o2.age = 22;
+    o2.show = function () {
+    };
+    // 缺点： 不能把json对象当成一个模板，不能通过new来构造一个新对象，
+
+    // 第三种： 创建对象的方式
+    function Cat(){
+        // this = {};使用new方法创建对象后会创建一个空对象
+        // 类似的执行步骤，写出来方便理解
+        // var t = {};
+        // this = t;
+        //t.__proto__ = Cat().prototype;
+        this.name = "yinle";
+        this.age = 22;
+        this.show = function () {
+            console.log(this.age);
+        };
+        name = '1212'; //污染全局
+        // 无变量声明时（无var），就相当于创建了个全局变量；
+        // name = '1231' 相当于window.name = '1231';
+
+        // return this/t;
+    }
+    var cat = new Cat();// 通过构造函数 来构建一个新对象
+    // new Cat(); 之后执行Cat构造函数，然后Cat构造函数如果有返回值，
+    // 那么直接把返回值赋值给cat实例
+    // 如果构造函数没返回值，那么就会把构造函数中构造的那个this对象返回给cat实例
+
+    cat.show();
+    var cat1 = new Cat();
+    // car ===cat1; // false
+
+    // new 的内部原理：
+        // 第0步在内存中开辟一个新空间
+        // 第一步： 创建一个空对象；
+        // 第二步： 把this.指向这个空对象；
+        // 第三部： 把空对象的内部原型指向构造函数的原型对象；
+        // 第四步： 当构造函数执行完成后如果没有return 就把构造函数里的空对象返回；
+
+        // 新对象的.__proto__等于构造函数的原型函数cat.__proto__ === Cat.prototype
+
+
+
+
+    // 如果有return
+    function Bird(){
+        name = '123';
+        age = '22';
+        // 没return时返回this及包含name age属性
+        // 有return时只包含demo属性
+        return{
+            demo : 123
+        };
+    }
+    var bird = new Bird();
+    console.log(bird.demo);
+</script>
+</body>
+</html>
+<script>
+    window.onload = function () {
+
+        function yl(){
+            this.name = "印乐";
+            this.age = 22;
+            this.show = function () {
+                console.log("姓名："+this.name+" "+"年龄:"+this.age);
+            }
+        }
+
+        var px = new yl();
+        px.show();
+    }
+</script>

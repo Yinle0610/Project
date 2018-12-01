@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			float: left;
+			width: 200px;
+			height: 200px;
+			margin: 10px;
+			border:1px solid black;
+		}
+		/* 从一个中心点开始沿着四周方向进行渐变 */
+		.box:nth-child(1){
+			background-image: radial-gradient(yellow,green);
+		}
+		/* 1、辐射范围 2.中心点 3、颜色的起止 */
+		.box:nth-child(2){
+			background-image: radial-gradient(120px at center center,yellow,green);
+		}
+		/* 中心位置参照的是盒子的左上角 */
+		.box:nth-child(3){
+			background-image: radial-gradient(120px at 80px 80px,yellow,green);
+		}
+		/* 辐射的半径可以不等即可以为椭圆 */
+		.box:nth-child(4){
+			background-image: radial-gradient(120px 80px at center center,yellow,green);
+		}
+		/* 圆circle */
+		.box:nth-child(5){
+			background-image: radial-gradient(circle at center center,yellow,green);
+		}
+		/* 椭圆ellipse */
+		.ellipse{
+			width: 1000px;
+			height: 500px;
+			float: left;
+			background-image: radial-gradient(ellipse at center center,yellow,green);
+		}
+	</style>
+</head>
+<body>
+	<div class="hole">
+	<div class="box" data-brief="123"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="ellipse"></div>
+	</div>
+</body>
+</html>

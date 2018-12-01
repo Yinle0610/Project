@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div">222</div>
+<input type="text" id="input" />
+<button id="btn">button</button>
+</body>
+</html>
+<script src="../practice.js"></script>
+<script>
+    var dom = $$.$id('div');
+    var input = $$.$id('input');
+    $$.on('btn', 'click', function () {
+        dom.innerHTML='111';
+        input.value='111';
+    });
+
+   /* var dom = $$.$id('div')
+    var input = $$.$id('input')
+    $$.on('btn','click',function(){
+        //获取内容
+        dom.innerHTML='111'
+        //获取表单控件内容
+        input.value='111'
+    })*/
+</script>

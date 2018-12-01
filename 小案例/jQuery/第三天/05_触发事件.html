@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            $("form").on("click","#btn", function () {
+                var name = $("#name").val();
+                if(name === "1"){
+                    alert("提交成功")
+                }else{
+                    $("#name").val("").trigger("focus");
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<form action="">
+<label for="name">用户名</label> <input type="text" id="name">
+    <input type="button" value="提交" id="btn">
+</form>
+</body>
+</html>

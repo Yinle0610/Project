@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	.box{
+		width: 300px;
+		height: 500px;
+		border:1px solid red;
+		margin: 100px; 
+		position: relative;
+		overflow: hidden;
+	}
+	.content{
+		height: auto;
+		padding-right: 20px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		
+	}
+	.scroll{
+		width: 20px;
+		height: 100%;
+		position: absolute;
+		top:0;
+		right: 0;
+		background-color: #eee;
+	}
+	.bar{
+		width: 100%;
+		height: 100px;
+		background-color: red;
+		border-radius: 10px;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		position: absolute;
+	}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<div class="content" id="content">文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字，努力！奋斗！！！！！</div>
+		<div class="scroll" id="scroll">
+			<div class="bar"></div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+	var box=document.getElementById("box");
+	var content=box.children[0];
+	var scroll=box.children[1];
+	var bar=scroll.children[0];
+ 	var	barHeight=box.offsetHeight/content.offsetHeight*box.offsetHeight;
+ 	bar.style.height=barHeight+"px";
+ 	startScroll(bar,content);
+ 	function startScroll(obj,target){
+ 	obj.onmousedown=function (event){
+ 		var event=event || window.event;
+ 		var t=event.clientY-this.offsetTop;
+ 		var that=this;
+ 		document.onmousemove=function(event){
+ 			var event=event || window.event;
+ 			var barTop=event.clientY - t;// bar移动的距离
+ 		if(barTop<0){
+ 			that.style.top=0;
+ 		}else if(barTop>box.offsetHeight-that.offsetHeight)
+ 		{
+ 			that.style.top=box.offsetHeight-that.offsetHeight+"px";
+ 		}
+ 		else{
+ 			that.style.top=event.clientY - t+"px" ;
+ 			// （文字模块高度-盒子高度）/（盒子高度-滚动条高度）*滚动距离=文字模块上移距离
+ 		target.style.top=-(content.offsetHeight-box.offsetHeight)/(box.offsetHeight-that.offsetHeight)*barTop+"px";
+		}
+ 		window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();   
+ 		// 防止拖动滑块的时候， 选中文字
+ 	}
+ 	document.onmouseup=function(){
+ 		document.onmousemove=null;
+ 	}
+}}
+</script>

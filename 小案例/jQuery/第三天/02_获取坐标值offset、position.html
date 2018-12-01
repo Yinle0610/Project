@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div{
+            position: absolute;
+            top: 100px;
+            left: 200px;
+            width: 400px;
+            height: 300px;
+            background-color: yellowgreen;
+        }
+        p{
+            position: absolute;
+            top:80px;
+            left: 20px;
+        }
+    </style>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            $("button").eq(0).click(function () {
+                console.log("距离页面顶部的距离："+$("div").offset().top);
+                console.log("距离页面左边的距离："+$("div").offset().left);
+            });
+            $("button").eq(1).click(function () {
+                console.log("相对于父元素上边的距离："+$("p").position().top);
+                console.log("相对于父元素左边的距离："+$("p").position().left);
+            });
+            $("button").eq(2).click(function () {
+                var txtTop = $("#txtTop").val();
+                var txtLeft = $("#txtLeft").val();
+                $("div").offset({
+                    top:txtTop,
+                    left:txtLeft
+                });
+                });
+            })
+
+    </script>
+</head>
+<body>
+<button>offset获取div坐标</button>
+<button>获取相对于父元素position坐标</button>
+<button>设置position坐标值</button>
+<label for="txtTop">top:</label><input type="text" id="txtTop">
+<label for="txtLeft">left:</label><input type="text" id="txtLeft">
+<div>
+    <p>我是div的子元素</p>
+</div>
+</body>
+</html>

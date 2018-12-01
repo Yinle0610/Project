@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-sacle=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Title</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+    </style>
+    <script src="../bower_components/konva/konva.js"></script>
+</head>
+<body>
+<div id="container">
+
+</div>
+<script>
+    // 创建舞台
+    var stage = new Konva.Stage({
+        container : 'container',
+        width : window.innerWidth,
+        height : window.innerHeight
+    });
+
+    // 创建层
+    var layer = new Konva.Layer();
+    stage.add( layer );
+
+    // 中心点坐标
+    var cenX = stage.width / 2; // Konva获取参数都是用方法获取值
+    var cenY = stage.height / 2;
+
+    var x = 1/8 * stage.width();
+    var y = cenY;
+
+    var height =  1/12 * stage.height();
+    var maxWidth = 3/4 * stage.width();
+
+    // 绘制一个进度条
+    var InnerRect = new Konva.Rect({
+        x : x,
+        y : y,
+        fill : 'pink',
+        width : 100,
+        height : height,
+        cornerRadius : height / 2// corner角落
+    });
+    layer.add( InnerRect );
+    // 把内部矩形放到外层矩形
+    var outerRect = new Konva.Rect({
+            x : x,
+            y : y,
+            width : maxWidth,
+            height : height,
+            stroke : 'blue',
+            strokeWidth : 4,
+            cornerRadius : height / 2
+    });
+    layer.add( outerRect );
+
+    layer.draw();
+
+    // Konva 的动画效果
+    InnerRect.to({
+        width : maxWidth,
+        duration : 2, // 所需时间
+        easing : Konva.Easings.EaseIn()
+    })
+</script>
+</body>
+
+</html>

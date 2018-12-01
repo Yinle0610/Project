@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 id="title">产品名称</h2>
+<h3 id="des">产品描述</h3>
+<div id="price">0</div>
+<script>
+    /* 1、先去思考需要那几个对象 */
+    /* 2、分析属性和方法 */
+    /* 实现工具包：写代码 */
+    /* 使用工具包 */
+
+
+    /* 抽象 */
+    //  产品对象属性 ： 名称、价格  、 描述
+    function Product (){
+        // 标题
+        this.title = 'iphon8';
+        // 价格
+        this.price =  6700;
+        // 图片轮播
+        this.image = [];
+        /* 描述 */
+        this.description = '手机中的霸主'
+    }
+
+    Product.prototype = {
+        /* 购买 */
+        buy : function () {
+
+        },
+        /* 获取详细信息 */
+        getDetail : function () {
+        
+        },
+        /* 对代码进行分类管理 */
+        bindDom : function () {
+
+        },
+        bindEvents : function () {
+
+        }
+    };
+
+    window.onload = function(){
+        var iphone32 = new Product();
+        iphone32.title = '32G apple 玫瑰金色';
+        iphone32.price = 4988;
+
+        /* 先获取元素 */
+        var title = document.getElementById('title');
+        /* 绑定元素 */
+        title.innerHTML = iphone32.title;
+        /* 绑定事件 */
+    }
+
+</script>
+
+</body>
+</html>

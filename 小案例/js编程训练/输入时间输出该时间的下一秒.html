@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	window.onload = function(){
+
+		function later(){
+			var t = prompt("请输入年月日时分秒(格式‘YYYY-MM-DD hh:mm:ss’)");
+			var pattern = /^\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}$/;
+			while(!pattern.test(t.trim())){
+				alert("格式错误，请重新输入！");
+				t = prompt("请输入年月日时分秒(格式‘YYYY-MM-DD hh:mm:ss’):");
+			}
+			var later = new Date(+new Date(t)+1000),
+			YYYY = later.getFullYear(),
+			MM = later.getMonth()+1,
+			DD = later.getDate(),
+			hh = later.getHours(),
+			mm = later.getMinutes(),
+			ss = later.getSeconds();
+			alert("该时间的下一秒为"+YYYY+"-"+MM+"-"+DD+" "+hh+":"+mm+":"+ss);
+		}
+		later();
+	}
+
+	</script>
+</body>
+</html>

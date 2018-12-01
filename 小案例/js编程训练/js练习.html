@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	/*
+	题目
+	要求：使用js，返回1到400所有自然数中一共出现多少次“1”，
+		如1到21一共出现过13次1；
+
+	解题思路：将1到400的所有数转化为字符串。然后利用for循环求得1的个数。
+	*/
+	window.onload = function(){
+		// 输入数字和期望的长度，转化为对应长度的字符串，用0补足。
+		function exp(num,length){
+		// 把数字转化为字符串
+		var numstr = num.toString();
+		// 字符串的长度
+		var m = numstr.length;
+		if(numstr.length >= length){
+		// 如果输入的数字转化成的字符串长度大于/等于期望长度则返回该数字转化的字符串
+			return numstr;
+		} 
+		for(var i = 0; i < length - m; i++ ){
+			numstr = '0' + numstr;
+		}
+		// 该函数返回的结果为numstr;
+		return numstr;
+		}
+		// 调用exp函数，使用for循环遍历一个个比较
+		// result为最终1出现的次数
+		var result = 0;
+		// 遍历从1开始一直到400所有的数
+		for(var n = 1; n <= 400; n++){
+		// numstr为每个转化后的字符串
+			var numstr = exp(n , 3);
+		// 取numstr的每一位与1相比较
+			for(var s = 0; s < numstr.length; s++){
+				if( numstr[s] == 1){
+					result += 1;
+					}
+				}
+			
+		}
+		console.log( result );
+	} 
+
+	</script>
+</body>
+</html>

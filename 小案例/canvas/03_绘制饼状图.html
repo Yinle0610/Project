@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="cavsElem">
+
+</canvas>
+<script>
+    (function() {
+        var canvas = document.querySelector('#cavsElem');
+        var ctx = canvas.getContext('2d');
+
+        canvas.width = 900;
+        canvas.height = 600;
+        canvas.style.border = "1px solid #000";
+      /*  // 矩形 rect（x，y，width，height）
+        ctx.rect(100,100,150,50);
+        ctx.stroke();
+
+        // 描边矩形
+        ctx.strokeRect(100,200,50,50);
+
+        // 填充矩形
+        ctx.fillRect(100,300,50,50);*/
+
+        // 弧度 rad = deg * Math.PI / 180
+        var data = [
+            {
+                "value":.2,
+                "color":"red",
+                "title":"应届生"
+            }, {
+                "value":.3,
+                "color":"green",
+                "title":"应届生"
+            }, {
+                "value":.4,
+                "color":"blue",
+                "title":"应届生"
+            }, {
+                "value":.1,
+                "color":"gray",
+                "title":"应届生"
+            }
+        ];
+        var tempAngle = -90;
+        for( var i = 0; i < data.length; i++){
+            ctx.beginPath();
+            var angle = data[i].value * 360;
+            ctx.fillStyle = data[i].color;
+            var startAngle = tempAngle * Math.PI / 180;
+            var endAngle = (tempAngle + angle)* Math.PI / 180;
+            ctx.moveTo(100,100);
+            ctx.arc(100,100,100,startAngle,endAngle);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.fill();
+
+            tempAngle += angle;
+        }
+    })();
+</script>
+</body>
+</html>
+

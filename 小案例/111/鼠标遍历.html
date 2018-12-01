@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{  list-style: none;  }
+        #box{
+            height: 70px;
+            width: 360px;
+            padding-top: 360px;
+            border: 1px solid  #ccc;
+            margin: 100px auto;
+            background: url(images/01big.jpg) no-repeat;
+        }
+        #box ul{
+            overflow: hidden;
+            border-top: 1px solid #ccc;
+        }
+        #box li{
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+        	var box=document.getElementById("box");
+            function fn(bgc,bg){
+                var pc = document.getElementById(bgc);
+                
+                pc.onmouseover = function(){
+                    box.style.backgroundImage=bg;
+                }
+            }
+            fn("bg1","url(images/01big.jpg)");
+            fn("bg2","url(images/02big.jpg)");
+            fn("bg3","url(images/03big.jpg)");
+            fn("bg4","url(images/04big.jpg)");
+            fn("bg5","url(images/05big.jpg)");
+        }
+
+    </script>
+</head>
+<body>
+<div id="box">
+      <ul>
+          <li id="bg1"><img src="images/01.jpg"></li>
+          <li id="bg2"><img src="images/02.jpg"> </li>
+          <li id="bg3"><img src="images/03.jpg"></li>
+          <li id="bg4"><img src="images/04.jpg"></li>
+          <li id="bg5"><img src="images/05.jpg"></li>
+      </ul>
+</div>
+</body>
+</html>

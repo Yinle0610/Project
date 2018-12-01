@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	// 求数组中每个数的和
+	window.onload = function(){
+		function sum(){
+			var result = arguments[0];
+			for(var i = 1; i < arguments.length; i++){
+				result += arguments[i];
+			}
+			return result;
+		}
+
+		console.log(sum(1,3,5));
+		console.log(sum(3,5,7));
+		console.log(sum('zhang','','guo','','rong'));
+		console.log(sum('yin','','le'));
+		//document.write(sum())
+	}
+	</script>
+</body>
+</html>

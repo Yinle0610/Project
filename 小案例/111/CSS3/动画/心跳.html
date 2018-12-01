@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	html, body {
+			height: 100%;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+			background: #ffa5a5;
+			background: linear-gradient(to bottom, #ffa5a5 0%,#ffd3d3 100%);
+		}
+
+		.hole{
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			position: relative;
+		}
+
+		.heart{
+			z-index: 2;
+			background: linear-gradient(-90deg, #F50A45 0%, #d5093c 40%);
+			position: absolute;
+			animation: beat 0.7s ease 0s infinite normal;
+		}
+
+		.heart.center {
+			background: linear-gradient(-45deg, #B80734 0%, #d5093c 40%);
+		}
+
+		.side {
+			top: 100px;
+			width: 220px;
+			height: 220px;
+			border-radius: 220px;
+		}
+		
+		.center {
+			width: 210px;
+			height: 210px;
+			bottom: 100px;
+			left: 145px;
+			font-size: 0;
+			text-indent: -9999px;
+			/* transform: rotate(45deg); */
+		}
+
+		.left{
+			left:60px;
+			z-index: 3;
+		}
+		.right{
+			right: 60px;
+		}
+		@keyframes beat {
+			0% {
+				transform: scale(1) rotate(225deg);
+				box-shadow:0 0 40px #d5093c;
+			}
+
+			50% {
+				transform: scale(1.1) rotate(225deg);
+				box-shadow:0 0 70px #d5093c;
+			}
+
+			100% {
+				transform: scale(1) rotate(225deg);
+				box-shadow:0 0 40px #d5093c;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div class="hole">
+		<div class="heart left side"></div>
+		<div class="heart center"></div>
+		<div class="heart right side"></div>
+		
+	</div>
+</body>
+</html>

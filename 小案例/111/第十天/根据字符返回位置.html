@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt1" /><button id="btn1">从头开始搜索</button><input type="text" id="txt2" /><button id="btn2">从后开始搜索</button>
+</body>
+</html>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	$("btn1").onclick=function(){
+		alert($("txt1").value.indexOf($("txt2").value));
+	}
+	$("btn2").onclick=function(){
+		alert($("txt1").value.lastIndexOf($("txt2").value));
+	}
+</script>

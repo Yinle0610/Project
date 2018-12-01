@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+ <canvas id="cavsElem">
+  </canvas>
+</div>
+ <button id="up">↑</button>
+ <button id="down">↓</button>
+ <button id="left">←</button>
+ <button id="right">→</button>
+  <script>
+  (function() {
+         var canvas = document.querySelector('#cavsElem');
+         var ctx = canvas.getContext('2d');
+
+         canvas.width = 800;
+         canvas.height = 600;
+         canvas.style.border = "1px solid #000";
+
+      var dirIndex = 0;
+      var img = new Image();
+      img.src = 'imgs/gameImgs/DMMban.png';
+      img.onload = function () {
+          var frameIndex = 0;
+          /*var index = 0;*/
+          setInterval(function () {
+              // 清除之前的图片
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              // 如果重置canvas宽高canvas内容也会被重置
+             // canvas.width = canvas.width;
+              ctx.drawImage(
+                      img,
+                      frameIndex*40,
+                      dirIndex*65,
+                      40,
+                      65,
+                      300,
+                      200,
+                      40*2,
+                      65*2
+              );
+              frameIndex ++;
+              /*index++;*/
+              frameIndex %= 4;
+          },1000 / 5);
+      };
+      var btnright = document.getElementById('right');
+      btnright.onclick = function () {
+            dirIndex = 2;
+      };
+      var btnup = document.getElementById('up');
+      btnup.onclick = function () {
+          dirIndex = 3;
+      };
+      var btndown = document.getElementById('down');
+      btndown.onclick = function () {
+          dirIndex = 0;
+      };
+      var btnleft = document.getElementById('left');
+      btnleft.onclick = function () {
+          dirIndex = 1;
+      };
+     })();
+   </script>
+</body>
+</html>

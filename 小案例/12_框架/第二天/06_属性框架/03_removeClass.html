@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            color:red;
+            font-size:50px;
+        }
+        .hide{display: none}
+        .show{display: block}
+        .bigger{font-size: 200px;}
+        .blue{color: blue;}
+    </style>
+</head>
+<body>
+<div class='div hide'>传智播客</div>
+<div class='div hide'>传智播客</div>
+<div class='div hide'>传智播客</div>
+<div class='div hide'>传智播客</div>
+<div class='div hide'>传智播客</div>
+<button id='removehideclass'>移除hide class</button>
+<button id='addhideclass'>添加hide class</button>
+</body>
+</html>
+<script src="../practice.js"></script>
+<script>
+    $$.click(removehideclass ,  function () {
+        $$.removeClass('.div', 'hide');
+        // console.log(123);
+    });
+    $$.click(addhideclass ,  function () {
+        $$.addClass('.div', 'hide');
+        // console.log(123);
+    });
+    /*$$.$id('addhideclass').onclick = function () {
+        $$.addClass('.div', 'hide');
+    };
+*/
+    $$.$id('removehideclass').onclick = function () {
+        removeClass('.div', 'hide');
+        // console.log(211);
+    };
+
+    function removeClass(context, name){
+        var doms = $$.$all(context);
+        if(doms.length){
+            for(var i = 0, len = doms.length; i < len; i++){
+                removeName(doms[i]);
+            }
+        }else{
+            removeName(doms);
+        }
+
+        /* 给元素添加一个 class */
+        function removeName(dom){
+            dom.className = dom.className.replace(name, ' ');
+        }
+    }
+
+
+
+</script>

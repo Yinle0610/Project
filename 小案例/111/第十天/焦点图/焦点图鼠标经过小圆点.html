@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		ul,ol{list-style: none;}
+		.bOx{
+			margin: 100px auto;
+			height: 170px;
+			width: 490px;
+			background-color: pink;
+			position: relative;
+			border: 1px solid #ccc;	 
+			padding: 5px;
+		}
+		.Pic{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+		.Pic ul{
+			width: 1000%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.Pic ul li{float: left;}
+		.bOx ol{
+			bottom:10px;
+			left: 50%;
+			margin-left: -80px;
+			position: absolute;
+		}
+		.bOx ol li{
+			float: left;
+			width: 18px;
+			height: 18px;
+			background-color: #fff;
+			margin-left: 10px;
+			text-align: center;
+			line-height: 18px;
+			cursor: pointer;
+		}
+		.bOx ol li.current{
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" class="bOx">
+		<div id="pic" class="Pic">
+			<ul>
+				<li><img src="images/01.jpg" alt="" /></li>
+				<li><img src="images/02.jpg" alt="" /></li>
+				<li><img src="images/03.jpg" alt="" /></li>
+				<li><img src="images/04.jpg" alt="" /></li>
+				<li><img src="images/05.jpg" alt="" /></li>
+			</ul>
+		</div>
+		<ol>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ol>
+	</div>
+</body>
+</html>
+<script>
+	var Box=document.getElementById("box");
+	var ul=Box.children[0].children[0];
+	var ol=Box.children[1];
+    var	ollis=ol.children;
+    var leader=0 , target=0;
+	for(var i=0;i<ollis.length;i++){
+		ollis[i].index=i;
+		ollis[i].onmouseover = function(){
+			for(var j=0;j<ollis.length;j++){
+				ollis[j].className="";
+			}
+			this.className="current";
+			target= -this.index*490;
+		}
+	}
+	setInterval(function(){
+        leader=leader+(target-leader)/10;
+        ul.style.left=leader + "px";
+	}, 5000)
+</script>

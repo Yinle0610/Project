@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin: 0;padding: 0;}
+	.box{
+		margin: 100px auto;
+		width: 590px;
+		height: 470px;
+		overflow: hidden;
+		position: relative;
+	}
+	.circle{
+		position: absolute;
+		margin-left: -50px;
+		left: 50%;
+		bottom: 10px;
+	}
+	.circle span{
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		background-color: pink;
+		text-align: center;
+		line-height: 18px;
+		margin-right: 10px;
+		cursor: pointer;
+		float: left;
+	}
+	</style>
+	<script>
+	window.onload=function(){
+		var box=document.getElementById("box");
+		var circle=document.createElement("div");
+		circle.setAttribute("class","circle");
+		box.appendChild(circle);
+		var ul=document.getElementById("ul");
+		var lis=ul.children;
+		//alert(lis.length);
+		for(var i=0;i<lis.length;i++){
+			lis[i].num=i;
+			var newspan=document.createElement("span");
+			newspan.innerHTML=i+1;
+			circle.appendChild(newspan);
+			newspan.onclick=function(){
+				for(var j=0;j<lis.length;j++){
+					this.style.backgroundImage="url(images/ii.jpg)";
+				}
+			}
+		}
+	}
+	</script>
+</head>
+
+<body>
+	<div id="box" class="box">
+		<ul id="ul">
+			<li><img src="images/11.jpg"></li>
+			<li><img src="images/22.jpg"></li>
+			<li><img src="images/33.jpg"></li>
+			<li><img src="images/44.jpg"></li>
+			<li><img src="images/55.jpg"></li>
+		</ul>
+	</div>
+</body>
+</html>

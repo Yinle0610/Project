@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--显示隐藏多个元素 -->
+<div class="div">武汉学院1503印乐</div>
+<div class="div">武汉学院1503印乐</div>
+<div class="div">武汉学院1503印乐</div>
+<div class="div">武汉学院1503印乐</div>
+<button id="btn1">显示</button>
+<button id="btn2">隐藏</button>
+<script src="../practice.js"></script>
+<script>
+
+    $$.on('btn2','click',function(){
+        $$.hide('.div')
+    });
+
+    $$.on('btn1','click',function(){
+        $$.show('.div')
+    })
+;
+
+</script>
+
+</body>
+</html>

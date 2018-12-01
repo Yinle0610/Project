@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>
+<script>
+    var demo = document.getElementById("demo");
+    var num = 0;
+    window.onresize = size(function () {
+        num++;
+        demo.innerHTML = document.documentElement.clientWidth || window.innerWidth;
+        console.log(num);
+    },300);
+
+    function size(fn,delay) {
+        var timer = null;
+        return function () {
+            clearTimeout(timer);
+            timer = setTimeout(fn,delay);
+        }
+    }
+
+</script>

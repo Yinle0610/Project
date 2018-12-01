@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div">123</div>
+<input type="text" id="input">
+<button id="btn">按钮</button>
+</body>
+</html>
+<script src="../practice.js"></script>
+<script>
+
+    $$.on('btn', 'click', function () {
+        $$.html('#div', '印乐');
+        $$.$id('input').value = 'yinle';
+        console.log($$.html('#div'));
+    });
+
+
+    function html(context, value){
+        var doms = $$.$all(context);
+        if(value){
+            /* 存在 value 设置模式*/
+            for(var i = 0; i < doms.length; i++){
+                doms[i].innerHTML = value;
+            }
+        }else{
+            /* 没有 value 获取模式*/
+            return doms[0].innerHTML;
+        }
+    }
+</script>

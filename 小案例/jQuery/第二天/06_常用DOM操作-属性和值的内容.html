@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+          $("input:eq(0)").click(function () {
+                      // 设置属性
+                      $(this).attr("title","我是动态设置的属性");
+                  });
+          $("input:eq(1)").click(function () {
+                    // 获取属性
+              var attr = $("input:eq(0)").attr("title");
+              console.log(attr);});
+            // 移除属性
+            $("input:eq(2)").click(function () {
+                $("input:eq(0)").removeAttr("title");
+            });
+            // 设置值txt框的文字
+            $("input:eq(3)").click(function () {
+                $("#txt").val("这是动态设置的值");});
+            // 获取值
+            $("input:eq(4)").click(function () {
+                console.log($("#txt").val())});
+            // 设置html内容
+            $("input:eq(5)").click(function () {
+                $("div").html("<p>这是p标签的内容</p>");
+            });
+            $("Input:eq(6)").click(function () {
+                alert($("div").html());
+            })
+            $("input:eq(7)").click(function () {
+                $("div").text("这是txt的内容");
+            });
+            })
+    </script>
+</head>
+<body>
+<input type="button" value="设置属性">
+<input type="button" value="获取属性">
+<input type="button" value="移除属性">
+<input type="button" value="设置值">
+<input type="button" value="获取值">
+<input type="button" value="设置html内容">
+<input type="button" value="获取html内容">
+<input type="button" value="设置text内容">
+<div>
+    <input type="text" id="txt">
+</div>
+</body>
+</html>

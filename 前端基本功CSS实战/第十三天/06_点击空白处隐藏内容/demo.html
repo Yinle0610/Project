@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        #mask{
+            width: 100%;
+            height: 100%;
+            background-color: #666666;
+            position: fixed;
+            opacity: 0.4;  /* 半透明 */
+            filter: alpha(opacity = 40);  /* ie6 半透明 */
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        #show{
+            width: 250px;
+            height: 250px;
+            left: 50%;
+            top: 50%;
+            margin: -150px 0 0 -150px;
+            position: fixed;
+            background-color: #fff;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<a href="javascript:" id="reg">注册</a>
+<a href="javascript:" id="login">登录</a>
+<div id="mask"></div>
+<div id="show"></div>
+</body>
+</html>
+<script>
+    var reg = document.getElementById("reg");
+    var show = document.getElementById("show");
+    var mask = document.getElementById("mask");
+    reg.onclick = function(event) {
+        var event = event || window.event;
+        if(event && event.stopPropagation){
+            event.stopPropagation();
+        }
+        else {
+            event.cancelBubble = true;
+        }
+        mask.style.display = "block";
+        show.style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+    document.onclick = function(event) {
+        var event = event || window.event;
+      //  alert(event.target.id);
+        var targetId = event.target? event.target.id :event.srcElement.id;
+        if( targetId != "show"){
+        mask.style.display = "none";
+        show.style.display = "none";
+        document.body.style.overflow = "visible"; // 显示滚动条
+        }
+    }
+</script>

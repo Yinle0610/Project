@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          //  $("li:last").css("font-size","30px");
+            // $("li:eq(3)").css("font-size","30px");
+         //  $("li:even").css("font-size","30px");   // 偶数
+            $("li:odd").css("font-size","30px");   // 奇数
+
+
+        })
+    </script>
+</head>
+<body>
+<div class="divItem">
+    <div>
+        <p></p>
+    </div>
+    <p>
+        这个P元素的样式为 .divItem 的一个直接子元素。
+        我们可以通过.div>p选择得到这个p元素
+        <span>
+            它是.divItem的一个后代元素，
+            我们不能通过.divItem>span获得，
+            只能通过.divItem span来获得
+        </span>
+    </p>
+</div>
+<ul>
+    <li>01号男嘉宾</li>
+    <li>02号男嘉宾</li>
+    <li>03号男嘉宾</li>
+    <li>04号男嘉宾</li>
+    <li>05号男嘉宾</li>
+    <li>06号男嘉宾</li>
+    <li>07号男嘉宾</li>
+    <li>08号男嘉宾</li>
+</ul>
+</body>
+</html>

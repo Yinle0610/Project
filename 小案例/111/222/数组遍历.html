@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+
+	<style>
+	ul{
+		list-style: none;
+	}
+
+	</style>
+	<script>
+	window.onload=function(){
+		// function $(id){
+		// 	return document.getElementById(id);
+		// }
+		var lis=document.getElementById("ul").getElementsByTagName("i")
+		for(var i=0;i<lis.length;i++){
+			if(i%2!=0){
+				lis[i].innerHTML="你好";
+				lis[i].style.backgroundColor="#ccc";
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+<ul id='ul'>
+<li>
+	<i>111</i>
+	<span>数学</span>
+</li>
+<li>	
+	<i>222</i>
+	<span>语文</span>
+</li>
+<li>
+	<i>333</i>
+	<span>英语</span>
+</li>
+<li>
+	<i>444</i>
+	<span>物理</span>
+</li>
+<li>
+	<i>555</i>
+	<span>化学</span>
+</li>
+</ul>
+</body>
+</html>

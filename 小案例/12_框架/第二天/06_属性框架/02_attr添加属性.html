@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    *{padding: 10px;}
+    div{
+        color:red;
+        font-size:50px;
+    }
+    .div{
+        color:blue;
+        font-size:50px;
+    }
+</style>
+<body>
+<div id="container">
+    印乐  软工1503
+</div>
+<button id="mybtn">按钮</button>
+</body>
+</html>
+<script src="../practice.js"></script>
+<script>
+    $$.$id('mybtn').onclick = function () {
+        attr('container', 'class', 'div');
+        attr('container', 'name', '信息');
+
+    };
+/*
+
+//  多个属性
+    function attr(context, key, value){
+        var doms = $$.$all(context);
+        if(value){
+            for(var i = 0; i < doms.length; i++){
+                doms[i].setAttribute(key, value);
+            }
+        }else{
+            // 获取模式
+            return doms[0].getAttribute(key);
+        }
+    }
+*/
+
+    function attr(id, key, value){
+        var dom =  $$.$id(id);
+        if(value){
+            dom.setAttribute(key, value);
+        }else{
+            return dom.getAttribute(key);
+        }
+    }
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	window.onload = function(){
+		// 输入数字和期望的长度，转化为对应长度的字符串，用0补足。
+		function exp(num,length){
+		var numstr = num.toString();
+		var m = numstr.length;
+		if(numstr.length >= length){
+			return numstr;
+		} 
+		for(var i = 0; i < length - m; i++ ){
+			numstr = '0' + numstr;
+		}
+		return numstr;
+		}
+		// 调用exp函数，使用for循环遍历一个个比较
+		var n ;
+		var result = 0;
+		for(n=1; n <= 400; n++){
+			var numstr = exp(n , 3){
+				for(var s = 0; s < numstr.length; s++){
+					if( numstr[s] == 1){
+						result += 1;
+					}
+				}
+			}
+		}
+		console.log( result );
+	} 
+
+	</script>
+</body>
+</html>

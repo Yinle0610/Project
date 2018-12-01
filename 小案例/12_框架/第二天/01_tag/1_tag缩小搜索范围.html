@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="mydiv">
+    <span>点击变成蓝色</span>
+    <span>点击变成蓝色</span>
+    <span>点击变成蓝色</span>
+    <span>点击变成蓝色</span>
+</div>
+</body>
+</html>
+<script src="../practice.js"></script>
+<script>
+    var spans = $$.$tag('span' , 'mydiv');
+    for(var i = 0; i < spans.length; i++){
+        spans[i].onclick = function () {
+            this.style.background = 'blue';
+        }
+    }
+
+</script>

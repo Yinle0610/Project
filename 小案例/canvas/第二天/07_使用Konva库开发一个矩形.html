@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用Konva来绘制一个矩形</title>
+    <script src="../bower_components/konva/konva.js"></script>
+</head>
+<body>
+
+<div id="container">
+
+</div>
+<script>
+    // 第一步： 创建舞台
+    var stage = new Konva.Stage({
+        container : 'container',
+        width : window.innerWidth,
+        height : window.innerHeight//全屏
+    });
+    var layer = new Konva.Layer();
+
+    // 第三步：把层添加到舞台上去
+    stage.add( layer );
+
+    // 第四步： 创建一个矩形
+    var rect = new Konva.Rect({
+        x : 100,
+        y : 100,
+        opacity : .6,
+        width : 100,
+        height : 200,
+        scaleX : 1.2,
+        scaleY : 1.2,
+        draggable : true,
+        fill : 'orange',
+        rotation : 60
+    });
+// 第五步： 把矩形添加到层上去
+    layer.add( rect );
+
+    //第六步： 把层渲染到  舞台上
+    layer.draw();
+</script>
+</body>
+</html>

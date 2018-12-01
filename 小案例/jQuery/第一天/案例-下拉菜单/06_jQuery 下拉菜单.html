@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+
+        }
+        .wrap{
+            width: 330px;
+            height: 30px;
+            margin: 100px auto;
+            background-image: url("img/bg.jpg");
+            padding-left: 10px;
+        }
+        .wrap li{
+            float: left;
+            width: 100px;
+            margin-right: 10px;
+            /*height: 30px;*/
+            text-align: center;
+            line-height: 30px;
+            background-image: url("img/libg.jpg");
+            position: relative;
+            cursor: pointer;
+        }
+        .wrap li ul{
+            position: absolute;
+            display: none;
+        }
+
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+//            $(".wrap li").mouseenter(function () {
+//               $(this).children("ul").show();
+//            });
+//            $(".wrap li").mouseleave(function () {
+//                $(this).children("ul").hide();
+//            });
+
+           /* $(".wrap li").hover(function () {
+                $(this).children("ul").show();
+
+            },function(){$(this).children("ul").hide();});*/
+
+            /* $(".wrap li").hover(function(){
+                var $this = $(this).children("ul");
+                var isShow = $this.css("display");
+                if(isShow === "block"){
+                    $this.hide();
+                }else{
+                    $this.show();
+                }
+            })*/
+
+            $(".wrap li").hover(function () {
+                $(this).children("ul").slideToggle();
+
+            })
+        });
+
+    </script>
+
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>一级菜单1
+        <ul>
+            <li>二级菜单1</li>
+            <li>二级菜单2</li>
+            <li>二级菜单3</li>
+        </ul>
+        </li>
+        <li>一级菜单2
+            <ul>
+                <li>二级菜单1</li>
+                <li>二级菜单2</li>
+                <li>二级菜单3</li>
+            </ul>
+        </li>
+        <li>一级菜单3
+            <ul>
+                <li>二级菜单1</li>
+                <li>二级菜单2</li>
+                <li>二级菜单3</li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+</body>
+</html>

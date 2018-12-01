@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            color:red;
+            font-size:50px;
+        }
+        .hide{display: none}
+        .show{display: block}
+        .bigger{font-size: 200px;}
+        .blue{color: blue;}
+    </style>
+</head>
+<body>
+<div class='div'>传智播客</div>
+<div class='div'>传智播客</div>
+<div class='div'>传智播客</div>
+<div class='div'>传智播客</div>
+<div class='div'>传智播客</div>
+<button id='show'>显示</button>
+<button id='hide'>隐藏</button>
+</body>
+</html>
+<script src="../practice.js"></script>
+<script>
+
+    $$.$id('hide').onclick = function () {
+        addClass('.div', 'blue bigger');
+        console.log(211);
+    };
+
+    function addClass(context, name){
+        var doms = $$.$all(context);
+        if(doms.length){
+            for(var i = 0, len = doms.length; i < len; i++){
+                addName(doms[i]);
+            }
+        }else{
+            addName(doms);
+        }
+
+        /* 给元素添加一个 class */
+        function addName(dom){
+            dom.className = dom.className + " " + name;
+        }
+    }
+
+
+
+</script>

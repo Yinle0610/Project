@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="time"></div>
+</body>
+</html>
+<script>
+    var t=document.getElementById("time");
+	//console.log(date);
+	var endtime=new Date("2018/07/01 23:30:11");
+	//console.log(endtime);
+	setInterval(function(){
+		var nowtime=new Date();
+		//console.log(nowtime.getTime());
+		var second=parseInt((endtime.getTime()-nowtime.getTime())/1000);
+		var minute=parseInt(second/60%60);
+		var hour=parseInt(second/3600%24);
+		var day=parseInt(second/3600/24);
+		var s=parseInt(second%60);
+		day<10?day="0"+day:day;
+		hour<10?hour="0"+hour:hour;
+		minute<10?minute="0"+minute:minute;
+		s<10?s="0"+s:s;
+		// 天数 小时 分钟 秒 小于10时在前面加0
+		t.innerHTML=("距离2018/07/01 23:30:11还有"+day+"天"+hour+"小时"+minute+"分钟"+s+"秒");
+	}, 1000)
+
+</script>

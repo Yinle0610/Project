@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 15px;
+            font-size: 35px;
+            color: red;
+            border: 1px solid red;
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+<div class="mydiv">
+
+    <p>英雄联盟</p>
+    <p>dnf</p>
+</div>
+
+
+<script  src="../practice.js"></script>
+<script>
+    var doms = $$.$all('p');
+    console.log(doms.length);
+
+    setStyle(doms, 'color', 'yellow');
+
+
+
+    function css() {
+        /* 设置样式 */
+        function setStyle(doms, key, value) {
+            for (var i = 0; i < doms.length; i++) {
+                doms[i].style[key] = value;
+            }
+        }
+        /* 获取样式 */
+        function getStyle(doms, key) {
+            if (doms.currentStyle) {
+                return dom.currentStyle[key];
+            } else {
+                return window.getComputedStyle(doms, null)[key];
+            }
+
+        }
+    }
+</script>
+</body>
+</html>

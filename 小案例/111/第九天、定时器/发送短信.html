@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" /><button id="btn">发送信息</button>
+</body>
+</html>
+<script>
+	var btn=document.getElementById("btn");
+	var count=5;
+	btn.onclick=function(){
+		clearInterval(timer);
+		this.disabled=true;
+		var that=this;
+		var timer=null;
+		timer=setInterval(sendMessage,1000);
+
+		function sendMessage(){
+			count--;
+		//	count<0?btn.disabled=false:btn.innerHTML="重新发送还剩"+count+"秒";
+		if(count>=0){
+			that.innerHTML="还剩"+count+"秒";
+		}else{
+			that.innerHTML="重新发送短信";
+			that.disabled=false;
+			clearInterval(timer); 
+			// clearInterval（）清除定时器
+			count=5;
+		}
+		}
+	}
+</script>

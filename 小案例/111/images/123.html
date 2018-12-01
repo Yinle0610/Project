@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{  list-style: none;  }
+        #box{
+            height: 70px;
+            width: 360px;
+            padding-top: 360px;
+            border: 1px solid  #ccc;
+            margin: 100px auto;
+            background: url("01big.jpg") no-repeat;
+        }
+        #box ul{
+            overflow: hidden;
+            border-top: 1px solid #ccc;
+        }
+        #box li{
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function(bgc,bg){
+            function fn(bgc){
+                var pc = document.getElementById(bgc);
+                var box=document.getElementById(box);
+                pc.onmouseover = function(){
+                    box.style.backgroundImage=bg;
+                }
+            }
+            fn("bg1","url(01big.jpg)");
+            fn("bg2","url(02big.jpg)");
+            fn("bg3","url(03big.jpg)");
+            fn("bg4","url(04big.jpg)");
+            fn("bg5","url(05big.jpg)");
+        }
+
+    </script>
+</head>
+<body>
+<div id="box">
+      <ul>
+          <li id="bg1"><img src="01.jpg"></li>
+          <li id="bg2"><img src="02.jpg"> </li>
+          <li id="bg3"><img src="03.jpg"></li>
+          <li id="bg4"><img src="04.jpg"></li>
+          <li id="bg5"><img src="05.jpg"></li>
+      </ul>
+</div>
+</body>
+</html>

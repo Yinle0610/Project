@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body,html{
+		margin: 0;
+		padding: 0;
+	}
+	.container{
+		background: #f40;
+		height: 2000px;
+	}
+	
+	.container{
+		width: 100%;
+	}
+
+	/* @media (min-width: 768px）相当于JS里if语句，但css从上往下执行时会出现覆盖情况 所以条件要从小到大 */
+	@media (min-width: 768px) and (max-width: 780px){
+		.container{
+			width: 750px;
+		}
+	}
+
+	@media (min-width: 992px){
+		.container{
+			width: 980px;
+		}
+	}
+
+	@media (min-width: 1280px){
+		.container{
+			width: 1170px;
+		}
+	}
+
+	</style>
+</head>
+<body>
+	<div class="container"></div>
+</body>
+</html>

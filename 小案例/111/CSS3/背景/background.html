@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>Document</title>
+		<style>
+/* 		.clip-img {
+			width: 130px;
+			height: 130px;
+			margin: 200px auto;
+			position: relative;
+			background-image: url(images/bg.jpg);
+		}
+ 
+		.clip-img::after,
+		.clip-img::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			padding: 30px;
+			box-sizing: border-box;
+		}
+ 
+		.clip-img::after {
+			background-color: red;
+			background-clip: content-box;
+			background-origin: padding-box;
+			left: 100px;
+			background-image: url(images/bg.jpg);
+			background-repeat: no-repeat;
+		}
+ 
+		.clip-img::before {
+			background-clip: content-box;
+			background-color: #FFF;
+		} */
+			
+		.clip-img{
+			width: 130px;
+			height: 130px;
+			position: relative;
+			margin: 100px auto;
+			background: url(images/bg.jpg) no-repeat;
+		}
+		
+		.before, .after{
+			width: 100%;
+			height: 100%;
+			/* display: block; */
+			position: absolute;
+			padding: 30px;
+			box-sizing: border-box;
+	/* 通过box-sizing来设置宽度的计算方式 content部分为70*/
+			
+		}
+
+		.before{
+			background: url(images/bg.jpg) no-repeat;
+			right: 100px;
+			background-clip: content-box;
+			/* 确定背景区域为内容部分，不包含padding和border */
+			background-origin: padding-box;
+			/* 设置背景图的定位原点默认为padding-box */
+		}
+
+		.after{
+			background-color: #fff;
+			background-clip: content-box;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="clip-img">
+			<span class="after"></span>
+			<span class="before"></span>
+		</div>
+	</body>
+	</html>	

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        #div{
+            background-color: #ccc;
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            top: 0;
+            left: 0;
+        }
+        #btn{
+            position: absolute;
+        }
+        #box2{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            top: 200px;
+            left: 200px;
+            position: absolute;
+        }
+        #box3{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            top: 0;
+            left: 200px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<div id="box2"></div>
+<div id="box3"></div>
+<button id="btn">按钮</button>
+</body>
+</html>
+<script src="../../practice.js"></script>
+<script>
+    // 定义一个动画对象
+    function Animate(){
+        /* 定时器的句柄 */
+        this.timer;
+        /* 间隔时间 */
+        this.interval = 15;
+        /* 动画对象 */
+        /* 保存单个物体运行需要的一切数据 */
+        this._obj = {};
+    }
+    Animate.prototype = {
+
+        /* 运行部 */
+        /* 部门职责： 就是动起来 */
+
+        /* 动画的本质 */
+        /* 就是一个循环 ，循环做一些事情 */
+        /* left： 100 110 120 130 140...*/
+        _run: function () {
+            var that = this;
+            that.timer = setInterval(function(){that._move(that._obj);}, that.interval);
+        },
+        /* 每次循环要做的事情 */
+        _move: function (_obj) {
+            var id = _obj.id;
+            var styles = _obj.styles;
+            var that = this;
+            // 计算现在的时间
+            var pass = +new Date();
+           /* console.log('pass'+pass);*/
+            tween = that._getTween(_obj.now, pass, _obj.duration);
+           /* console.log('tween'+tween);*/
+            if (tween >= 1) {
+                /* 停止动画 */
+                that._stop(id, styles);
+            } else {
+               that._manyProperty(id, styles, tween)
+            }
+        },
+        _getTween: function(now, pass, duration){
+            var yongshi = pass - now;
+            var tween = yongshi / duration;
+            return tween;
+    },
+
+        _stop: function(id, styles){
+            this._manyProperty(id, styles, 1);
+            clearInterval(this.timer);
+    },
+
+
+        _oneProperty: function(id, name, start, juli, tween){
+        if(name == 'opacity'){
+            $$.css(id, name, start+juli*tween);
+        }else{
+            $$.css(id, name, start+juli*tween+'px');
+        }
+    },
+        _manyProperty: function (id, styles, tween) {
+            for (var i = 0; i < styles.length; i++) {
+                this._oneProperty(id, styles[i].name, styles[i].start, styles[i].juli, tween);
+            }
+        },
+
+
+        /*-------------------------------------------------------------------------*/
+    /* 添加部 */
+        /* 职责：将用户传递的参数转换成我们需要的格式 */
+        /* 这里：就是用一个对象去保存一切我们需要的数据 --- 然后 -- 传递给 run */
+        /* 接收用户传递的参数 */
+        add: function (id, json, duration) {
+            this._adapter(id, json, duration);
+            this._run();
+            console.log(this._obj);
+        },
+        /* 前面为了提高用户体验，我们让用户以直观的形式传递参数 */
+        _adapter: function (id, json, duration) {
+            /* 复习前面定义一个styles
+            *  {name：'left'，start：'100'}*/
+            /* 我们定义一个json对象来保存单个物体在运行中需要的一切变量 */
+            // 起始时间  经过时间  tween id  duration  juli  styles
+            this._obj.id = id;
+            this._obj.duration = duration;
+            this._obj.tween = 0;
+            this._obj.now = +new Date();
+            this._obj.styles = this._getStyles(id, json);
+        },
+        /* _前缀表示私有方法  自己使用 */
+        _getStyles: function (id, source) {
+            var target = [];
+            for(var item in source){
+                var json = {};
+                json.start = parseFloat($$.css(id, item));
+                json.juli = parseFloat(source[item]) - json.start;
+                json.name = item;
+                target.push(json);
+            }
+            return target;
+        },
+        /* 后勤部 */
+        /* 职责：擦屁股，比如：代码优化 压缩 安全 内存回收*/
+        /* 专门做内存回收 */
+        _destory: function () {
+        }
+    };
+
+    var animate = new Animate();
+
+    //animate.add('#div', {top:300,left:400,width:'500',opacity:0.2},2000);
+    animate.add('#box2', {top:300,left:400,width:'500',opacity:0.2},2000);
+    animate.add('#box3', {top:300,left:400,width:'500',opacity:0.2},2000);
+
+</script>

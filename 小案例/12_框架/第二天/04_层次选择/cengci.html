@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding: 10px;}
+    </style>
+</head>
+<body>
+<div id="container">
+    <h3>h3</h3>
+    <div class="div">
+        <p class="moshou">魔兽世界</p>
+        <p class="hero">英雄联盟</p>
+        <p class="dream">梦幻西游</p>
+    </div>
+    <div class="div">
+        <p class="moshou2">魔兽世界2</p>
+        <p class="hero2">英雄联盟2</p>
+        <p class="dream2">梦幻西游2</p>
+    </div>
+</div>
+<script src="../practice.js"></script>
+<script>
+    var doms = $cengci('#container .div p');
+    for(var i = 0, len = doms.length; i < len; i++){
+        doms[i].style.border = '1px solid red';
+    }
+
+
+
+    function $cengci(select) {
+        //个个击破法则 -- 寻找击破点
+        var sel = select.split(' ');
+        // 定义容器保存id
+        var context = [];
+        // 存放
+        var result = [];
+        for (var i = 0, len = sel.length; i < len; i++) {
+
+            var item = sel[i];
+            var first = sel[i].charAt(0);
+            var index = item.indexOf(first);
+            var name = item.slice(index + 1);
+            if (first === '#') {
+                //如果是#，找到该元素，
+                context = $$.$id(name);
+
+            } else if (first === '.') {
+                //如果是.  就为class
+                // length > 0 表示有多个class
+                // 需要遍历
+                if(context.length > 0){
+                    for(var i = 0; i < context.length; i++){
+                        pushArray($$.$class(name,context[i]));
+                        context = result;
+                    }
+                }else{
+                    //  只有一个就直接输出
+                    pushArray($$.$class(name));
+                    context = result;
+                }
+            } else {
+                //如果是标签
+                if(context.length > 0) {
+                    for (var i = 0; i < context.length; i++) {
+                        pushArray($$.$tag(item, context[i]));
+                        context = result;
+                    }
+                }else{
+                    pushArray($$.$tag(item));
+                    context = result;
+                    }
+                }
+
+            }
+
+        function pushArray(doms) {
+            for (var j = 0, listLen = doms.length; j < listLen; j++) {
+                result.push(doms[j]);
+            }
+        }
+
+        return context;
+    }
+</script>
+</body>
+</html>

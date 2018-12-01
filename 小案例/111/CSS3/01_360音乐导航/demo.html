@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        nav{
+            width: 800px;
+            height: 35px;
+            border: 1px solid black;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        nav ul{
+            list-style: none;
+            display: -webkit-box;
+        }
+        nav li{
+            -webkit-box-flex: 1;
+            line-height: 35px;
+            height:35px;
+            /*max-height: 35px;*/
+            /*width: 99px;*/
+            text-align: center;
+            border-right: 1px dashed black;
+            position: relative;
+            cursor: pointer;
+        }
+        nav li ins{
+            left:0;
+            top:35px;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            position: absolute;
+            z-index: -1;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+            $("nav li:last").css({border:0});
+            $("nav li").append("<ins></ins>");
+            var arr = new Array("red","blue","green","yellow","pink","deeppink","orange","purple");
+            $("nav li ins").each(function (index,ele) {
+                $(ele).css("backgroundColor",arr[index]);
+            })
+            $("nav li").mouseenter(function () {
+                $(this).children("ins").stop().animate({top:0},200);
+                $("audio").get($(this).index()).load();
+                $("audio").get($(this).index()).play();
+            }).mouseleave(function () {
+                $(this).children("ins").stop().animate({top:35},200);
+            });
+
+            // 键盘事件
+            $(window).keydown(function (event) {
+                // alert(event.keyCode); //  返回该键盘的  unicode  编码
+                /*  if(event.keyCode == 13)
+                 {
+                 alert("您按了回车")
+                 }*/
+                var num = 0;
+                if(event.keyCode>=49 && event.keyCode<=56){
+                    num = event.keyCode - 49;
+                    $("nav li").eq(num).trigger("mouseenter");
+                    /* trigger 给对象绑定事件 */
+                    setTimeout(function () {
+                    $("nav li").eq(num).trigger("mouseleave");
+                    },300)
+                };
+            });
+        })
+    </script>
+</head>
+<body>
+<nav>
+    <ul>
+        <li>邓紫棋</li>
+        <li>邓紫棋</li>
+        <li>邓紫棋</li>
+        <li>邓紫棋</li>
+        <li>邓紫棋</li>
+        <li>邓紫棋</li>
+        <li>邓紫棋</li>
+        <li>邓紫棋</li>
+    </ul>
+</nav>
+<audio src="music/1.ogg"></audio>
+<audio src="music/2.ogg"></audio>
+<audio src="music/3.ogg"></audio>
+<audio src="music/4.ogg"></audio>
+<audio src="music/5.ogg"></audio>
+<audio src="music/6.ogg"></audio>
+<audio src="music/7.ogg"></audio>
+<audio src="music/8.ogg"></audio>
+</body>
+</html>

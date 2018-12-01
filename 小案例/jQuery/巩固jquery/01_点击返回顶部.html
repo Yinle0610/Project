@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100%;
+            height: 3000px;
+            /*position: relative;*/
+        }
+        span{
+            top: 200px;
+            right: 30px;
+            position: absolute;
+            display: none;
+        }
+    </style>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                // var tp = $("span").offset().top;
+                var Top = $(document).scrollTop();
+                if(Top > 0){
+                    $("span").show();
+                    $("span").stop().animate({"top":$(document).scrollTop()+400},300);
+                }else{
+                    $("span").hide();
+                }
+            });
+            $("span").on("click", function () {
+                $(window).scrollTop(0)
+            })
+        })
+
+    </script>
+</head>
+<body>
+<div>
+    <span>点击回顶部</span>
+</div>
+</body>
+</html>

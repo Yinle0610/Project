@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin: 0;padding: 0;}
+	.item{
+		height: 600px;
+		width: 400px;
+		display: flex;
+		flex-direction:column;
+		justify-content: space-between;
+		position: relative;
+	}
+
+	.head{
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		background-color: pink;
+		position: relative;
+	}
+
+	.main{
+		background-color: yellow;
+		flex: 1;
+		display: flex;
+		position: relative;
+	}
+
+	.main .left{
+		flex: 1;
+		background-color: red;
+	}
+
+	.main .content{
+		flex: 2;
+	}
+
+	.bottom{
+		background-color: blue;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		position: relative;
+	}
+
+	.bottom ul{
+		display: flex;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		list-style: none;
+	}
+
+	.bottom ul li{
+		flex:1;
+	}
+	</style>
+</head>
+<body>
+	<div class="item">
+		<div class="head">头部</div>
+		<div class="main">
+			<div class="left">侧栏</div>
+			<div class="content">主体部分</div>
+		</div>
+		<div class="bottom"><ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

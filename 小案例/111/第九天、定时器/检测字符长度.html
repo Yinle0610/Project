@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	var txt="what are you 弄啥嘞";
+	console.log(txt.length);
+	function Stringlength(str){
+		var len=0;// 储存总长度
+		var c=0;// 储存每一个编码
+		for(var i=0;i<str.length;i++){
+			c=str.charCodeAt(i); // 获取编码
+			// 判断是否是字符型   大于127为字符型
+			if(c>=0 && c<=127){
+				len++;
+			}else{
+				len+=2;
+			}
+		}
+		return len;
+	}
+		console.log(Stringlength(txt));
+
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #demo{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<button id="btn">改变宽度</button>
+<script>
+    var demo =document.getElementById("demo");// 获得id为demo的div盒子给demo
+    var btn = document.getElementById("btn");
+    btn.onclick = function(){
+
+        demo.style.width = "400px";
+    }
+    btn.onclick = function(){
+        demo.style.width="200px";
+    }
+
+</script>
+<div></div>
+</body>
+</html>

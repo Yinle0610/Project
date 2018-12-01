@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Person(name,age){
+        var obj = {};
+        obj.name = name;
+        obj.age = age;
+        obj.showname = function () {
+            alert("我的名字是"+obj.name);
+        }
+        obj.showage = function () {
+            alert("我的年龄是"+obj.age);
+        }
+        return obj;
+    }
+
+    var xiaoming = Person("小明",16);
+    console.log(xiaoming.name);
+    xiaoming.showname();
+    xiaoming.showage();
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;}
+        div{
+            height: 300px;
+            width: 300px;
+            background-color: #ccc;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">确认</button>
+<div id="div"></div>
+</body>
+</html>
+<script>
+    var btn = document.getElementById('btn');
+    var div = document.getElementById('div');
+    var timer ;
+    var speed = 10;
+    // 将一个物体  从0 -- 500 时间是5秒
+
+    // 动画的原理就是  循环   每次改变left的值不断的增大，让我们看起来像是运动一样
+    btn.onclick = function () {
+        timer = setInterval(move, 30);
+
+    };
+
+    function move(){
+        if(div.offsetLeft > 500){
+            clearInterval(timer);
+        }else{
+            div.style.left = div.offsetLeft + speed +'px';
+        }
+    }
+
+
+</script>

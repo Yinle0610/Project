@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            /*边框折叠*/
+            border-collapse: collapse;
+            /*边框空隙*/
+            border-spacing: 0;
+            border: 1px solid black;
+        }
+        th{
+            background-color: skyblue;
+            font:bold 16px "微软雅黑";
+            color: #fff;
+        }
+        tr,th,td{
+            border: 1px solid black;
+        }
+    </style>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        var data = [
+            {
+                name:"传智播客",
+                url:"http://www.itcast.cn",
+                type:"IT最强培训机构"
+            },
+            {
+                name:"黑马程序员",
+                url:"http://www.itheima.com",
+                type:"IT最强培训机构"
+            },
+            {
+                name:"传智播客前端学院",
+                url:"http://www.itcast.cn",
+                type:"前端的黄埔军校"
+            }];
+       $(function () {
+           // 动态创建表格
+           // 方法一
+          /* var bdHTML = "";
+           for( var i = 0; i < data.length; i++){
+               var message = data[i];
+               bdHTML += "<tr>";
+               bdHTML +=        "<td>"+ message.name +"</td>";
+               bdHTML +=        "<td>"+ message.url +"</td>";
+               bdHTML +=        "<td>"+ message.type +"</td>";
+               bdHTML += "</tr>";
+           }
+           $("#J_bd").html(bdHTML); */
+
+           // 方法2
+           for ( var i =0; i < data.length; i++){
+               // 动态创建一个tr标签，并且转化为jQuery对象
+               var $trTEMP = $("<tr></tr>");
+               // 往行里面追加td元素
+               $trTEMP.append("<td>" + data[i].name + "</td>");
+               $trTEMP.append("<td>" + data[i].url + "</td>");
+               $trTEMP.append("<td>" + data[i].type + "</td>");
+              // $trTEMP.appendTo($("#J_bd"))
+               $("#J_bd").append($trTEMP);
+           }
+       })
+    </script>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>标题</th>
+            <th>url</th>
+            <th>说明</th>
+        </tr>
+    </thead>
+    <tbody id="J_bd">
+    </tbody>
+</table>
+</body>
+</html>

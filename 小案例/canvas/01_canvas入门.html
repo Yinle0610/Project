@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #demo{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<!-- 宽高通过标签属性直接设置 -->
+<canvas id="demo" width="600px" height="600px">
+
+</canvas>
+<script>
+    window.onload = function () {
+        // 第一步 拿到canvas标签
+        var canvas = document.getElementById("demo");
+        // 第二步 拿到canvas的上下文
+        var ctx = canvas.getContext("2d");// 'webgl'(3d)
+        // 绘制图案
+        // moveTo(x0,y0); 第一个参数是x点坐标，第二个是y坐标
+        ctx.moveTo(100,100);// 把画笔移到100,100 点
+        ctx.lineTo(200,200);// 从100,100开始画一条直线到200,200
+        ctx.lineTo(100,200);// 再从200,200画一条直线到100，200
+
+        // ctx.lineTo(100,100);
+        ctx.closePath(); // 闭合路径
+        // 设置线宽
+        ctx.lineWidth = 4;// 两像素内  两像素外
+        // 描边
+        ctx.strokeStyle = "red"; // 线路（边框）颜色 在描边stroke之前写
+        ctx.stroke(); // stroke描边的意思 图案显示出来
+        // 填充
+        ctx.fillStyle = "pink"; // 设置填充颜色
+        ctx.fill(); // 图案颜色填充*/
+    }
+</script>
+</body>
+</html>

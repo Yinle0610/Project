@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>饼状图</title>
+    <script src="../bower_components/konva/konva.js"></script>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+
+    <script>
+        // 创建舞台
+        var stage = new Konva.Stage({
+            container : "container",
+            width : window.innerWidth,
+            height : window.innerHeight
+        });
+
+        // 创建层
+        var layer = new Konva.Layer();
+        stage.add(layer);
+
+        // 中心点坐标
+        var cenX = stage.width() / 2;
+        var cenY = stage.height() / 2;
+
+
+        var data = [
+            { name: "前端", value: .25, color: '#e0e'  },
+            { name: "php",  value: .2,  color: 'orange'},
+            { name: "UI",	value: .3,	color: 'blue'  },
+            { name: "C++",	value: .05,	color: 'green' },
+            { name: "游戏",	value: .1,	color: 'purple'},
+            { name: "Java",	value: .1,	color: 'red'   }
+        ];
+
+        // 圆心坐标
+        var x0 = cenX,
+            y0 = cenY;
+        // hosit  变量提升
+        var tempAngle = -90;
+        data.forEach(function (item , index) {
+            var angle = 360 * item.value;
+            var wedge = new Konva.Wedge({
+                x: x0,		//扇形圆心坐标
+                y: y0,
+                angle: angle ,	//扇形的角度
+                radius: 100,	//扇形的半径
+                fill: item.color,	//扇形的填充颜色
+                rotation: tempAngle //扇形的旋转角度
+            });
+            var textAngle = tempAngle + 1/2 * angle;
+            // 文字
+            var text = new Konva.Text({
+                x: x0 + (100+20) * Math.cos(Math.PI/ 180 * textAngle ),
+                y: y0+ (100+20) * Math.sin(Math.PI/ 180 * textAngle ),
+                text: item.value*100 +'%',
+                fill : item.color
+            });
+            //根据角度判断设置文字的 位置
+            if(  textAngle > 90 && textAngle < 270 ) {
+                //让文本向左边 移动文字宽度的位置。
+                text.x( text.x() - text.getWidth() );
+            }
+            tempAngle += angle;
+            layer.add( wedge );
+
+            layer.add(text);
+        });
+        var cir = new Konva.Circle({
+            x : x0,
+            y : y0,
+            radius : 110,
+            stroke : '#ccc',
+            strokeWidth : '2'
+        });
+
+        layer.add(cir);
+
+        layer.draw();
+
+        // 绘制动画
+        var index = 0; // 动画的索引
+        var wedges = layer.find('Wedge');
+        wedges.each(function( item,index ){
+            item.angle(0);
+        });
+        function animatePie(){
+            // 先拿到所有的扇形
+            var item = wedges[index];
+            item.to({
+                angle : data[index].value * 360,
+                duration : data[index].value * 2,
+                onFinish : function () { // 当动画结束之后，执行此方法
+                    index ++;
+                    if( index >= data.length ){
+                        return; // 立即结束当前函数
+                    }
+                    animatePie();
+                }
+            });
+        }
+        animatePie();
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+    div{
+	height:200px;
+	width:300px;
+	margin:100px auto;}
+	span{
+		line-height: 36px;
+	}
+</style>
+</head>
+
+<body>
+<div>
+<form>	
+<h3>最受欢迎手游：</h3>
+<p><input type="radio" value="cj" id="cj" name="piao" >刺激战场<br>
+	<input type="radio" value="wz" id="wz" name="piao">王者荣耀<br>
+    <input type="radio" value="dw" id="dw" name="piao">第五人格<br>
+    <input type="radio" value="ls" id="ls" name="piao">炉石传说<br>
+</p></form>
+<button id="btn">投票</button><br>
+<span id="span">请投票</span>
+</div>
+</body>
+</html>
+<script>
+var btn=document.getElementById("btn");
+var num=document.getElementById("num");
+var input=document.getElementsByTagName("input");
+var span=document.getElementById("span");
+var cj=0,wz=0,dw=0,ls=0;
+	btn.onclick=function(){	
+	if(input[0].checked==true){
+		cj += 1;
+		span.innerHTML=("投票成功，刺激战场,当前票数为"+cj);
+	}	
+	if(input[1].checked==true){
+		wz+=1;
+		span.innerHTML=("投票成功，王者荣耀,当前票数为"+wz);
+	}
+	if(input[2].checked==true)
+	{
+		dw+=1;
+		span.innerHTML=("投票成功，第五人格,当前票数为"+dw);
+	}
+	if(input[3].checked==true)
+	{
+		ls+=1;
+		span.innerHTML=("投票成功，炉石传说,当前票数为"+ls);
+	}
+}
+	</script>

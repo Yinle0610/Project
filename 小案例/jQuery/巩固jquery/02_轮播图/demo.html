@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        ul,ol{ list-style: none;}
+        .wrapper{
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        ol{
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            width: 190px;
+        }
+        ol li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: default;
+            background-color: #abc;
+        }
+        ol li.current{
+            background-color: red;
+        }
+        span{
+            top:40%;
+            line-height: 50px;
+            width:50px;
+            position: absolute;
+            text-align: center;
+        }
+        .right{
+            right: 0px;
+        }
+        .left{
+            left:0px;
+
+        }
+    </style>
+    <script src="../../jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            var $BtnL = $("<span>"+ '<' +"</span>");
+            $($BtnL).addClass("left");
+            $(".wrapper").append($BtnL);
+            var $BtnR = $("<span>"+ '>' +"</span>");
+            $($BtnR).addClass("right");
+            $(".wrapper").append($BtnR);
+            $(".wrapper ol li").mouseenter(function () {
+                $(this).addClass("current").siblings().removeClass("current");
+                $(".wrapper ul li").eq($(this).index()).fadeIn("fast").siblings().fadeOut("fast");
+                });
+            var i = 0;
+           /* $BtnR.click(function () {
+                i++;
+                i > $(".wrapper ul li").length - 1?i = 0 : i;
+                $(".wrapper ul li").eq(i).fadeIn("fast").siblings().fadeOut("fast");
+                $(".wrapper ol li").eq(i).addClass("current").siblings().removeClass("current");
+                });
+            $BtnL.click(function () {
+                i--;
+                i<0?i=$(".wrapper ul li").length - 1:i;
+                $(".wrapper ol li").eq(i).addClass("current").siblings().removeClass("current");
+                $(".wrapper ul li").eq(i).fadeIn("fast").siblings().fadeOut();
+            })*/
+            /*function animate(a,b) {
+                a;
+                b;
+                $(".wrapper ol li").eq(i).addClass("current").siblings().removeClass("current");
+                $(".wrapper ul li").eq(i).fadeIn("fast").siblings().fadeOut();
+            }
+            $BtnR.click(function () {
+                animate(i++,i > $(".wrapper ul li").length - 1?i = 0 : i);
+            });
+            $BtnL.click(function () {
+                animate(i--,i < 0?i = $(".wrapper ul li").length - 1 : i);
+            });*/
+            $BtnR.click(function () {
+                move();
+            });
+            $BtnL.click(function (){
+                move(-1);
+            });
+
+           // 自动轮播
+            var timer = null;
+            timer = setInterval(move,2000);
+            function move(left){
+                if(left){
+                    i--;
+                    i<0?i=$(".wrapper ul li").length - 1:i;
+                }else{
+                    i++;
+                    i>$(".wrapper ul li").length - 1? i = 0 : i;
+                }
+                $(".wrapper ol li").eq(i).addClass("current").siblings().removeClass("current");
+                $(".wrapper ul li").eq(i).fadeIn("fast").siblings().fadeOut();
+            };
+            $(".wrapper").hover(function () {
+                clearInterval(timer);
+            }, function () {
+                clearInterval(timer);
+                timer = setInterval(move,2000);
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <ul>
+        <li><img src="images/1.jpg" alt=""/></li>
+        <li><img src="images/2.jpg" alt=""/></li>
+        <li><img src="images/3.jpg" alt=""/></li>
+        <li><img src="images/4.jpg" alt=""/></li>
+        <li><img src="images/5.jpg" alt=""/></li>
+    </ul>
+    <ol>
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</div>
+</body>
+</html>

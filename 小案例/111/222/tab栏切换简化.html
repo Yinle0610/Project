@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	.box{
+		width: 329px;
+		margin: 100px auto;
+	}
+	.xx div{
+		width: 100%;
+		height: 200px;
+		background-color: pink;
+		display: none;
+	}
+	.xx .dd{
+		display: block;
+	}
+	.btn{
+		background-color: purple;
+	}
+	</style>
+	<script>
+	window.onload=function(){
+		var btns=document.getElementById("btn").getElementsByTagName("button");
+		var divs=document.getElementById("xx").getElementsByTagName("div");
+			for(var i=0;i<btns.length;i++){
+			btns[i].num=i;
+			btns[i].onclick=function(){	
+				for(var j=0;j<btns.length;j++){
+					btns[j].className="";
+					divs[j].className=""
+				}
+				this.className="btn";
+				divs[this.num].className="dd";
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div class="box">	
+	<div id="btn">  
+	<button>第一个</button>
+	<button>第二个</button>
+	<button>第三个</button>
+	<button>第四个</button>
+	<button>第五个</button>
+	 </div>
+	 <div class="xx" id="xx">
+	 	<div class="dd">一号盒子</div>
+	 	<div>二号盒子</div>
+	 	<div>三号盒子</div>
+	 	<div>四号盒子</div>
+	 	<div>五号盒子</div>
+	 </div>
+	</div>
+</body>
+</html>

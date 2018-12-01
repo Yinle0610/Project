@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+    $(function () {
+        $("button:first").click(function () {
+            $("div").append("<p>这是一个p标签append创建</p>");
+        });
+        $("button:eq(1)").click(function () {
+            $("<p>这是动态创建出来的 appendTo创建</p>").appendTo($("div"));
+        });
+        $("button:eq(2)").click(function () {
+            $("div").prepend("<p>这是一个p标签prepend创建节点在最前面</p>");
+        });
+        $("button:eq(3)").click(function () {
+            $("<p>这是一个p标签prependTo创建节点在最前面</p>").prependTo($("div"));
+        });
+        $("button:eq(4)").click(function () {
+            $("div").after("<p>这是div后面的p</p>");
+        });
+            $("button:eq(5)").click(function () {
+            $("div").before("<p>这是div前面的p</p>");
+        });
+        $("button:eq(6)").click(function () {
+            $("<p>div前面添加的节点</p>").insertBefore($("div"));
+        });
+        $("button:eq(7)").click(function () {
+            $("<p>div后面添加的节点</p>").insertAfter($("div"));
+        });
+        // 删除节点  会自杀
+        $("button:eq(8)").click(function () {
+           $("div").remove();
+        });
+        // 删除节点
+        $("button:eq(9)").click(function () {
+           // $("div").empty();
+            $("div").html("");// 推荐使用html("")
+        });
+        // 复制
+        $("button:eq(10)").click(function () {
+            $("div").append($("p").clone(true)); // 参数true会把之前绑定事件也复制一份
+        });
+        $("button:eq(11)").click(function () {
+            $("div").wrap($("span"));
+        });
+        $("button:eq(12)").click(function () {
+            $("div").replaceWith($("span"));
+        });
+    })
+    </script>
+</head>
+<body>
+<button>append 追加节点</button>
+<button>appendTo 追加节点</button>
+<button>prepend 在内部前面添加节点</button>
+<button>prependTo 在内部前面添加节点</button>
+<button>after 往后面添加节点</button>
+<button>before 往前面添加节点</button>
+<button>insetBefore 往前面添加节点</button>
+<button>insetAfter 往后面添加节点</button>
+<br/>
+<button>remove 删除节点(可以删除本身)</button>
+<button>empty 删除节点</button>
+<button>clone 复制节点</button>
+<button>warp 包裹节点</button>
+<button>replaceWidth 替换节点</button>
+
+<br/>
+<div>
+<h1>我是标题</h1>
+</div>
+<p>我是div外面的p不是动态生成</p>
+<span>我是一个小span</span>
+</body>
+</html>

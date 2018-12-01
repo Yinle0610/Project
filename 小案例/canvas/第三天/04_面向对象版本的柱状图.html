@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-sacle=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>04_面向对象柱状图</title>
+    <script src="../bower_components/konva/konva.js"></script>
+    <script src="js/histogram.js"></script>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+
+    <script>
+        // 创建舞台
+        var stage = new Konva.Stage({
+            container : "container",
+            width : window.innerWidth,
+            height : window.innerHeight
+        });
+
+        // 创建层
+        var layer = new Konva.Layer();
+        stage.add(layer);
+
+        // 中心点坐标
+        var cenX = stage.width() / 2;
+        var cenY = stage.height() / 2;
+
+        //柱状图的数据
+        var data = [
+            { name: '前端', value: '.8', color: 'green'},
+            { name: 'PHP', value: '.3', color: 'blue'},
+            { name: 'Java', value: '.7', color: 'red'},
+            { name: 'UI', value: '.9', color: 'orange'},
+            { name: 'IOS', value: '.4', color: 'purple'},
+            { name: 'Android', value: '.9', color: 'pink'}
+        ];
+
+        var h = new HistogramChart({
+            x : 1/8 * stage.width(),
+            y : 3/4 * stage.height(),
+            w : 3/4 * stage.width(),
+            h : 1/2 * stage.height(),
+            data : data
+        });
+
+        h.addToGroupOrLayer( layer );
+        layer.draw();
+
+        stage.on('contentClick' , function () {
+            h.playAnimate();
+        })
+    </script>
+</body>
+</html>

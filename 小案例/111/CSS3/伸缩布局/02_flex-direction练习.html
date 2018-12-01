@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin: 0;padding: 0;}
+	div ul{
+		display: flex;
+		list-style: none;
+	}
+
+	div li{
+		width: 200px;
+		height: 200px;
+		background-color: pink;
+		line-height: 200px;
+		text-align: center;
+		margin: 10px;
+	}
+
+	.box1 ul{
+		flex-direction:column;
+		/* 垂直分布 */
+	}
+
+	.box2 ul{
+		flex-direction:row-reverse;
+	}
+
+	.box3 ul{
+		/* 默认为水平分布 */
+	}
+
+	.space-between ul{
+		justify-content: space-between;
+		/* 均匀分布 */
+	}
+
+	.space-around ul{
+		justify-content: space-around;
+	}
+
+	.flex-start ul{
+		justify-content: flex-start;
+	}
+
+	.flex-end ul{
+		justify-content: flex-end;
+	}
+
+	.center ul{
+		justify-content: center;
+	}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<div class="box2">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<div class="box3">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<div class="justify-content space-between">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<div class="space-around">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<div class="flex-start">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<div class="flex-end">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<div class="center">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    span{
+        background-color: red;
+    }
+</style>
+</head>
+<body>
+<div id="mydiv">
+    <span class="span">点击变成蓝色</span>
+    <span class="span">点击变成蓝色</span>
+    <span class="span">点击变成蓝色</span>
+    <span class="span">点击变成蓝色</span>
+</div>
+</body>
+</html>
+<script src="../practice.js"></script>
+<script>
+    /*var spans = $class('span');
+    for(var i = 0; i < spans.length; i++){
+        spans[i].onclick = function () {
+            this.style.background = 'blue';
+        }
+    }
+    function $class(className){
+        /!* 1 获取所有 *!/
+        var elements = document.getElementsByTagName('*');
+        var arr = [];
+        /!* 2 过滤  从所有元素里面筛选出class 等于 span 的所有元素 *!/
+        for(var i = 0, len = elements.length; i < len; i++){
+            if(elements[i].className == className){
+                arr.push(elements[i]);
+            }
+        }
+        return arr;
+    }*/
+
+    var spans = $$.$class('mydiv','span');
+    for(var i = 0; i < spans.length; i++){
+        spans[i].onclick = function () {
+            this.style.background = 'blue';
+        }
+    }
+</script>

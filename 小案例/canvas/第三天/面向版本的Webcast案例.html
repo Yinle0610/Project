@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../bower_components/konva/konva.js"></script>
+    <script src="js/webcast.js"></script>
+</head>
+<body>
+<div id="container">
+
+</div>
+
+<script>
+    // 创建舞台
+    var stage = new Konva.Stage({
+        container : "container",
+        width : window.innerWidth,
+        height : window.innerHeight
+    });
+
+    // 中心点坐标
+    var cenX = stage.width() / 2;
+    var cenY = stage.height() / 2;
+
+    // 创建背景层
+    var bgLayer = new Konva.Layer();
+    stage.add( bgLayer );
+
+    // 绘制背景
+    var innerRadius = 252 / 2;
+    var outerRadius = 220;
+
+    var innerCircle = new Konva.Circle({
+        x : cenX,
+        y : cenY,
+        radius : innerRadius,
+        stroke : "#E1E1E1",
+        strokeWidth : 4,
+        dash : [10,4]
+    });
+
+    bgLayer.add( innerCircle );
+
+    var outerCircle = new Konva.Circle({
+        x : cenX,
+        y : cenY,
+        radius : outerRadius,
+        stroke : "#E1E1E1",
+        strokeWidth : 4,
+        dash : [10,4]
+    });
+
+    bgLayer.add( outerCircle );
+
+    var cenCircleText = new CircText({
+        x : cenX,
+        y : cenY,
+        innerRadius : 132/2,
+        outerRadius : 90,
+        innerStyle : '#525A82',
+        outerStyle : '#E1E1E1',
+        text : 'Web全栈',
+        align : 'center'
+    });
+    cenCircleText.addToGroupOrLayer( bgLayer );
+
+    bgLayer.draw();
+
+    // 添加二环的圆
+    // 动画层
+    var animateLayer = new Konva.Layer();
+    stage.add( animateLayer );
+
+    var L2Group = new Konva.Group({
+        x : cenX,
+        y : cenY
+    });
+    // 计算圆的圆心坐标
+
+    /*var x0 = cenX + innerRadius*Math.cos( -60 * Math.PI / 180 );
+    var y0 = cenY + innerRadius * Math.sin( -60 * Math.PI / 180);*/
+
+    var l2_html5_circle = new CircText({
+        x : innerRadius*Math.cos( -60 * Math.PI / 180 ),
+        y : innerRadius * Math.sin( -60 * Math.PI / 180),
+        innerRadius : 30,
+        outerRadius : 40,
+        innerStyle : '#FACED6',
+        outerStyle : '#E1E1E1',
+        text : 'html5',
+        align : 'center'
+    });
+    l2_html5_circle.addToGroupOrLayer( L2Group );
+
+    var l2_css3_circle = new CircText({
+        x : innerRadius*Math.cos( 160 * Math.PI / 180 ),
+        y : innerRadius * Math.sin( 160 * Math.PI / 180),
+        innerRadius : 30,
+        outerRadius : 40,
+        innerStyle : 'orange',
+        outerStyle : '#E1E1E1',
+        text : 'css3',
+        align : 'center'
+    });
+    l2_css3_circle.addToGroupOrLayer( L2Group );
+    // 把第二层的组添加到这个层上去
+    animateLayer.add( L2Group );
+
+    // 创建三环的组
+    var L3_group = new Konva.Group({
+        x : cenX,
+        y : cenY
+    });
+    // 绘制第三环的圆
+    var l3_Js_circle = new CircText({
+        x : outerRadius*Math.cos( 60 * Math.PI / 180 ),
+        y : outerRadius * Math.sin( 60 * Math.PI / 180),
+        innerRadius : 40,
+        outerRadius : 50,
+        innerStyle : 'purple',
+        outerStyle : '#E1E1E1',
+        text : 'Js',
+        align : 'center'
+    });
+    l3_Js_circle.addToGroupOrLayer( L3_group );
+    animateLayer.add( L3_group );
+
+
+    animateLayer.draw();
+    var rotateAnglPerSecond = 60; //每秒钟设置旋转60
+
+    // Konva的帧动画系统
+    var animate = new Konva.Animation(function (frame) {
+        // 每隔一会执行此方法，类似setInterval
+        // 计算当前帧 需要旋转的角度.
+        var rotateAngle = rotateAnglPerSecond * frame.timeDiff / 1000; // 上一帧加上当前帧的时间差 ， 毫秒
+
+        L2Group.rotate( rotateAngle );
+        L3_group.rotate( - rotateAngle );
+        //  拿到所有二环上的内部组 进行反向旋转
+        L2Group.getChildren().each(function ( item , index ) {
+            item.rotate( -rotateAngle );
+        });
+        L3_group.getChildren().each(function ( item , index ) {
+            item.rotate( rotateAngle );
+        })
+    } , animateLayer);
+    animate.start(); // 启动动画
+
+    animateLayer.on('mouseover' , function () {
+        // 设置旋转角度
+        rotateAnglPerSecond = 10;// 设置旋转角度为10度，旋转变慢。
+    });
+    // 给动画层绑定mouseout离开的事件。
+    animateLayer.on('mouseout' , function () {
+        rotateAnglPerSecond = 60;
+    })
+</script>
+</body>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	div span:first-child{
+		color: pink;
+	}
+	div span:nth-child(3){
+		background-color: blue;
+	}
+	div span:nth-of-type(2){
+		color:red;
+		text-shadow:1px red;
+	}
+	div span:last-child{
+		color: yellow;
+	}
+	.id{
+		width: 100px;
+		height: 100px;
+		margin: 0 auto;
+		background-color: pink;
+		display: flex;
+		flex-direction:column;    /* 垂直分布 */
+	}
+	.id div{
+		height: 100%;
+		flex:1;
+		background-color: purple;
+	}
+	.id div:first-child{
+		background-color: red;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<span>我是第一个span</span>
+		<span>我是第二个span</span>
+		<span>我是第三个span</span>
+		<span>我是第四个span</span>
+		<span>我是第五个span</span>
+		<p>haha我是P</p>
+		<span>我是第六个span</span>
+		<p></p>
+	</div>
+	<div class="id"><div></div>
+	<div></div></div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            margin: 100px auto;
+            width: 310px;
+            height: 438px;
+            border: 1px solid red;
+            perspective: 300px;
+            /*增加3D效果  近大远小*/
+        }
+        img{
+            transform-origin: left;
+            transition: all 1s;
+        }
+        div:hover img{
+            transform: rotateY(60deg);
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="pk1.png" alt="">
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div{
+            height: 200px;
+            width: 30px;
+            background-color: pink;
+            position: absolute;
+            left: -30px;
+        }
+        span{
+            position: absolute;
+            left: 30px;
+            top: 90px;
+        }
+    </style>
+</head>
+<body>
+<div class="all"><span>33</span>222</div>
+<button id="btn">22</button>
+</body>
+</html>
+<script src="../../jquery-1.11.1.min.js"></script>
+<script>
+    $(function () {
+
+        var bl = true;
+        // 判断是否是展开的
+        $(".all span ").click(function () {
+
+            if(bl == true) {
+                // json保存的是对哪个样式的属性做动画：right left top opacity width height
+                // 距离： 起始距离 -- 结束距离  两者差值
+                // 持续时间： 动画持续时间
+                // 回调函数： 当动画执行结束时做什么事情，我们可以将做的事放在回调函数里面
+
+                $(".all").animate({left: 0}, 300, function () {
+                    alert(123);
+                });
+
+                bl = false;
+            }else{
+                $(".all").animate({left: -30},300);
+
+                bl = true;
+            }
+        })
+
+    })
+</script>

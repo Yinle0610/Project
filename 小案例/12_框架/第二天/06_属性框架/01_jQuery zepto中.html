@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    p{
+        background:red;
+        font-size:40px;
+        color:yellow;
+    }
+    #p1{
+        color: pink;
+    }
+    .add{
+        color:blue;
+        font-size:100px;
+    }
+    .hide{
+        display:none
+    }
+</style>
+</head>
+<body>
+<p>英雄联盟</p>
+<p>梦幻西游</p>
+
+<ul>
+    <li>西游记</li>
+    <li>水浒传</li>
+    <li>三国演义</li>
+    <li>红楼梦</li>
+</ul>
+</body>
+</html>
+<script src="../../jquery-1.11.1.min.js"></script>
+<script>
+    // 属性操作  新增
+    // var element = $("p").eq(1);
+    var element = $("p:eq(1)");
+    element.attr("name", '神仙');
+    element.attr("id", 'p1');
+
+    //属性操作 删除
+
+    element.removeAttr("name");
+
+    //属性操作 - addClass
+    element.addClass('add hide');
+
+    //属性操作 - removeClass
+    element.removeClass('hide');
+
+    //属性操作 - removeClass
+    element.removeClass('add');
+
+
+    var lis = $('ul>li');
+    console.log(lis.length);
+    for(var i = 0; i < lis.length; i++){
+        if(i % 2 == 0){
+            lis.eq(i).addClass('add');
+        }else
+        lis.eq(i).addClass('hide');
+    }
+
+</script>

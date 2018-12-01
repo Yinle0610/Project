@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	.rotate{
+		width: 200px;
+		height: 200px;
+		background-color: pink;
+		margin: 10px;
+	}
+
+	.rotate:nth-child(1):hover{
+		/* rotateX/Y/Z 分别代表沿哪个轴翻转 */
+		transform:rotateX(360deg);
+		transition: all 3s;
+		/* transiton选择样式 转换需要的时间 */
+	}
+
+	.rotate:nth-child(2):hover{
+		transform:rotateY(360deg);
+		transition: all 3s;
+	}
+
+	.rotate:nth-child(3):hover{
+		transform:rotateZ(360deg);
+		transition: all 3s;
+	}
+	</style>
+</head>
+<body>
+	<div class="rotate"></div>
+	<div class="rotate"></div>
+	<div class="rotate"></div>
+
+</body>
+</html>

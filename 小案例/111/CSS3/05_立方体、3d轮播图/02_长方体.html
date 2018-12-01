@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            perspective: 700px;
+        }
+        ul{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            list-style: none;
+            margin: 100px auto;
+            text-align: center;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 6s;
+            transform: scaleX(2.5) scaleY(1.5) rotateX(0deg);
+        }
+        ul:hover {
+            transform:scaleX(2.5) scaleY(1.5) rotateX(90deg);
+        }
+        li{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        
+        ul li:nth-child(1){
+             background-color:rgba(255,0,0,.6);
+             transform: rotateX(0deg) translateZ(100px);
+         }
+        ul li:nth-child(2){
+            background-color:rgba(0,255,0,.6);
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        ul li:nth-child(3){
+            background-color:rgba(0,0,250,.6);
+            transform: rotateX(-180deg) translateZ(100px);
+        }
+        ul li:nth-child(4){
+            background-color:rgba(255,0,255,.6);
+            transform: rotateX(-270deg) translateZ(100px);
+        }
+        ul li:nth-child(5){
+            background-color:rgba(255,255,0,.6);
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        ul li:nth-child(6){
+            background-color:rgba(25,25,255,.6);
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li>第1面</li>
+    <li>第2面</li>
+    <li>第3面</li>
+    <li>第4面</li>
+    <li>第5面</li>
+    <li>第6面</li>
+</ul>
+</body>
+</html>

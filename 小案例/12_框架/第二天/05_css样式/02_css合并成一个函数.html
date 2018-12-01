@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div">
+    <p>英雄联盟</p>
+    <p>地下城与勇士</p>
+</div>
+
+<script src="../practice.js"></script>
+<script>
+    $$.css('#div p', 'color', 'blue');
+
+    /*
+    * 1、当我传递两个参数：获取
+    * 2、当我传递三个参数：设置 */
+    /* 各个击破法则 */
+
+ /*   function css(context, key, value){
+        var doms = $$.isString(context) ? $$.$all(context) : context;
+        /!* 如果获取的是集合 *!/
+        /!* 针对集合 *!/
+        if(doms.length) {
+            // 先骨架  -- 如果是设置模式
+            if (value) {
+                /!* 设置模式 *!/
+                // 如果是获取模式 -- 遍历
+                /!* setStyle(doms, key, value) *!/
+                for (var i = 0; i < doms.length; i++) {
+                    setOneStyle(doms[i], key, value);
+                }
+            } else {
+                /!* 获取 *!/
+                getStyle(doms[0], key);
+            }
+        }else {
+                /!* 设置 *!/
+                if(value){
+                    setOneStyle(doms, key, value);
+                }else {
+                    getStyle(doms, key);
+                }
+            }
+
+        }
+
+
+        /!* 设置单个元素样式 *!/
+        function setOneStyle(doms, key, value){
+            doms.style[key] = value;
+        }
+
+        /!* 设置样式 *!/
+        function setStyle(doms, key, value){
+            for(var i = 0; i < doms.length; i++){
+                doms[i].style[key] = value;
+            }
+
+
+    }
+
+*/
+</script>
+</body>
+</html>

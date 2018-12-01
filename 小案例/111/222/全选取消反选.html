@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var lis=document.getElementById("xx").getElementsByTagName("input");
+		var btns=document.getElementById("top").getElementsByTagName("button");
+		/*btns[0].onclick=function(){
+			for(var a=0;a<lis.length;a++){
+				lis[a].checked=true;
+			}
+		}
+		btns[1].onclick=function(){
+			for(var a=0;a<lis.length;a++){
+				lis[a].checked=false;
+			}
+		}
+		btns[2].onclick=function(){
+			for(var a=0;a<lis.length;a++)
+				if(lis[a].checked==true){
+				lis[a].checked=false;
+			}else{
+				lis[a].checked=true;
+			}
+	}*/
+		function all(flag){
+			for(var i=0;i<lis.length;i++){
+				lis[i].checked=flag;
+			}
+		}
+		btns[0].onclick=function(){
+			all(true);
+		}
+		btns[1].onclick=function(){
+			all(false);
+		}
+		btns[2].onclick=function(){
+			for(var i=0;i<lis.length;i++){
+				lis[i].checked==true?lis[i].checked=false:lis[i].checked=true;
+			}
+		}
+}
+	</script>
+</head>
+<body>
+	<div id="top">
+		<button>全选</button>
+		<button>取消</button>
+		<button>反选</button>
+	</div>
+	<div id="xx">
+		<ul>
+			<li>选项 <input type="checkbox" /></li>
+			<li>选项 <input type="checkbox" /></li>
+			<li>选项 <input type="checkbox" /></li>
+			<li>选项 <input type="checkbox" /></li>
+			<li>选项 <input type="checkbox" /></li>
+			<li>选项 <input type="checkbox" /></li>
+			<li>选项 <input type="checkbox" /></li>
+			<li>选项 <input type="checkbox" /></li>
+		</ul>
+	</div>
+	
+</body>
+</html>

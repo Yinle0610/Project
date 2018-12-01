@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function outerFun(){
+        var a=0;
+        function innerFun(){
+            a++;
+            alert(a);
+
+        }
+        return innerFun;
+    }
+
+    var ob = outerFun();
+    //console.log(ob);
+    ob();ob();
+    var obj = outerFun();
+   obj();obj();
+
+</script>

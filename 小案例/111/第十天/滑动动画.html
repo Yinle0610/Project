@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	.box{
+		height: 100px;
+		width: 100px;
+		background-color: pink;
+		left: 0;
+		top: 100px;
+		position: absolute;
+	}
+	</style>
+</head>
+<body>
+	<button id="btn">开始</button>
+	<div class="box" id="bOx"></div>
+	
+</body>
+</html>
+<script>
+	var bOx=document.getElementById("bOx");
+	var btn=document.getElementById("btn");
+	var timer=null;
+	var leader=0;
+	var target=500;
+	btn.onclick=function(){
+		setInterval(function(){
+
+			leader=leader + (target-leader)/20;
+			bOx.style.left=leader + "px";
+
+		}, 30)
+	}
+</script>	

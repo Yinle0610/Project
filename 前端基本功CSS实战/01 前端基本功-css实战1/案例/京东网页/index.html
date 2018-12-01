@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="favicon.ico">
+    <script type="text/javascript">
+        window.onload = function(){
+            var mask=document.getElementById("mask");
+            var login=document.getElementById("login");
+            var box=document.getElementById("box");
+            login.onclick =function(){
+                mask.style.display = "block";
+                box.style.display="block";
+            }
+            var guan=document.getElementById("guan");
+            guan.onclick= function(){
+                mask.style.display="none";
+                box.style.display="none";
+            }
+        }
+    </script>
+</head>
+<body class="index">
+<!--京东头部导航开始-->
+<div class="mask" id="mask"></div>
+<div class="box" id="box">
+    <span id="guan">×</span>
+    <table border="0px solid black" align="center" style="text-align: center">
+        <tr>
+           <td> 请注册您的账号</td>
+        </tr>
+        <tr>
+            <td>姓名：</td>
+           <td><input type="text"></td>
+        </tr>
+    </table>
+</div>
+<div class="shortcut" >
+    <div class="w">
+        <div class="fl">送至：北京
+        <i><s>▽</s></i>
+        </div>
+        <div class="fr">
+            <ul>
+                <li><a href="javascript:;" id="login">你好，请登录</a></li>
+                <li><a href="#">免费注册</a></li>
+                    <li>我的订单</li>
+                    <li>   </li>
+                    <li>我的京东<i><s>▽</s></i></li>
+                    <li>京东会员</li>
+                    <li>企业采购</li>
+                    <li>手机京东</li>
+                    <li></li>
+                    <li>关注京东</li>
+                    <li></li>
+                    <li>客户服务</li>
+                    <li></li>
+                    <li>网站导航 </li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+
+
+        </div>
+
+        
+
+
+    </div>
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

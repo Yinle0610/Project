@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            font-size: 20px;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+//        $(document).ready(function () {
+//            $("#b04").css("background-color","red");
+//            $("li").css("font-size","30px");
+//            $(".Item,div").css("background-color","blue");
+//        });
+
+        $(document).ready(function(){
+//            $(".Item").css({
+//                "background-color":"red"
+//            });
+
+//            $("li").css("font-size",function(index,value){
+//                // value的值为style里面设置的   index为序列号
+//                    return (index + 1)*parseInt(value) +"px";
+//            });
+
+            $("li#b04").css("background-color","pink");
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>兄弟很多1</li>
+    <li>兄弟很多2</li>
+    <li class="Item">兄弟很多3</li>
+    <li id="b04">兄弟很多4</li>
+    <li class="Item">兄弟很多5</li>
+    <li >兄弟很多6</li>
+    <li class="Item">兄弟很多7</li>
+    <li>兄弟很多8</li>
+</ul>
+<div>这是DIv</div>
+</body>
+</html>

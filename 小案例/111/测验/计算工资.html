@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        工作时间<input type="text" id="year"/></p>
+        工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资<input type="text" id="money"/></p>
+        <button id="btn">确定</button></p>
+        涨后工资<input type="text" id="gz"/></p>
+    </div>
+    <script type="text/javascript">
+    window.onload=function(){
+        function $(id){
+            return document.getElementById(id);
+        }
+        $("btn").onclick=function(){
+        var gz=parseInt($("money").value);
+        var year=parseInt($("year").value);
+        if(year>=5){
+            gz+=gz*0.2;
+        }else if(year>=2&&year<=4){
+            gz+=gz*0.15;
+        }else if(year=>0&&year<2){
+            gz+=gz*0.1;
+        }
+        $("gz").value=gz;
+    }
+    }
+    </script>
+</body>
+</html>

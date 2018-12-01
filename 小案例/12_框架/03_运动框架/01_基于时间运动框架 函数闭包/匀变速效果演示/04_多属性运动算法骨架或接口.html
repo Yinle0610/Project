@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        #div{
+            background-color: #ccc;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 0;
+            left: 0;
+        }
+        #btn{
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="div"></div>
+    <button id="btn">按钮</button>
+<div id="all">
+</div>
+</body>
+</html>
+<script src="../../../practice.js"></script>
+<script>
+
+    var btn = $$.$id(btn);
+    // var btn = document.getElementById('btn');
+    var json = {top: '300px', width: '400px', height: '300px', opacity: 0, left: '200px'};
+
+    $$.click('btn' , function () {
+        animate('div', json, 2000);
+        console.log(123);
+    });
+
+
+    function animate(id, json, duration){
+
+        // 运动开始时间
+        var now = +new Date();// 获取当前时间 并转为毫秒值
+        /* var yongshi = pass - now;*/
+        /* tween： 动画时间进程 */
+        /* 用时/总时间 */
+        /* 用时：已经走的时间  减  开始时间*/
+        /*var tween = yongshi / 5000;*/
+        var tween = 0;
+        var timer;
+        var styles = adapter(json);
+        timer = setInterval(move,30);
+
+
+        /* 计算一个属性： id 属性名称   起始距离   总距离  tween*/
+        /* juli ： 最终位置 -- 起始位置 */
+        /* start：$$.css('left') */
+
+
+        /* 适配器 */
+        function adapter(source){
+            /* 给我数据格式 */
+            //  var json = {top: '300px', width: '300px', height: '300px'};
+            /* 我需要的数据格式 */
+
+            /* 计算一个属性： id 属性名称   起始距离   总距离  tween*/
+            /* juli ： 最终位置 -- 起始位置 */
+            /* start：$$.css('left') */
+            /* parseFloat($$.css('left')) */
+            /* juli: 300 - start*/
+
+            var styles = [];
+            /*var styles = [
+                {name: 'top', start: 0, juli: 0},
+                {name: 'top', start: 0, juli: 0},
+                {name: 'top', start: 0, juli: 0}];
+*/
+            for(var item in source){
+                var style = {};
+                /* 属性名称 */
+                style.name = item;
+                console.log(style.name);
+                /*  起始位置 */
+                style.start = parseFloat($$.css(id, item));
+                console.log(style.start);
+                /* 距离 */
+                style.juli = parseFloat(source[item]) - style.start;
+                console.log(style.juli);
+                styles.push(style);
+            }
+            return styles;
+        }
+
+
+        function getTween(now, pass, duration){
+            var yongshi = pass - now;
+            var tween = yongshi / duration;
+            return tween;
+        }
+
+        function stop(){
+            clearInterval(timer);
+        }
+
+
+        function oneProperty(id, name, start, juli, tween){
+            if(name == 'opacity'){
+                $$.css(id, name, start+juli*tween);
+            }else{
+                $$.css(id, name, start+juli*tween + 'px');
+            }
+        }
+
+
+        function move(){
+            if(tween >= 1){
+                /* 停止动画 */
+                stop();
+            }else{
+                // 计算现在的时间
+                var pass = +new Date();
+                tween = getTween(now, pass, duration);
+                console.log('测试'+ styles);
+                for(var i = 0; i < styles.length; i++){
+                    oneProperty(id, styles[i].name, styles[i].start, styles[i].juli, tween);
+                }
+
+                // s = 总距离 * 进程
+                // div.style.left = juli * tween + 'px';
+            }
+        }
+    }
+</script>

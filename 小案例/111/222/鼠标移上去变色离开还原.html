@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	li.span{
+		margin: 5px;
+	}
+	ul{
+		list-style: none;
+	}
+	ul li{
+		line-height: 25px;
+		cursor: pointer;
+		width: 160px;
+	}
+	.color{
+		background-color: #ccc;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var lis=document.getElementsByTagName("li")
+		for(var i=0;i<=lis.length;i++){
+			// if(i%2!==0){
+			// 	lis[i].style.backgroundColor="#ccc";
+			// }
+			lis[i].onmouseover=function(){
+				this.className="color";
+			}
+			lis[i].onmouseout=function(){
+				this.className="";
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li><span>你好</span>，<span>这里是武汉学院</span></li>
+			<li><span>你好</span>，<span>这里是武汉学院</span></li>
+			<li><span>你好</span>，<span>这里是武汉学院</span></li>
+			<li><span>你好</span>，<span>这里是武汉学院</span></li>
+			<li><span>你好</span>，<span>这里是武汉学院</span></li>
+			<li><span>你好</span>，<span>这里是武汉学院</span></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="tz" class="tz"></div>
+</body>
+</html>
+<script>
+	var tz=document.getElementById("tz");
+	// 5秒后执行djs函数；
+	var speed=1000;
+	setTimeout(djs,speed);
+	var count=5;
+	function djs(){
+		count--;
+		tz.innerHTML="<a href='http://www.baidu.com'>还有"+count+"秒跳转页面</a>";
+		if(count<=0){
+			window.location.href="http://www.baidu.com"
+		}else{
+			setTimeout(arguments.callee,speed);
+			// 递归调用  
+			//常用arguments.callee来代替函数名，方便后期修改
+		}
+	}
+
+</script>

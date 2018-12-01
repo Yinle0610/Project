@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 构造函数标准用法！
+
+    // 在构造函数中，添加属性
+    /* function Sprite(){
+        this.name = '222';
+         this.age = '20';
+     }
+    // 在原型中添加方法，可以节省内存
+    Sprite.prototype.show = function () {
+        console.log(this.name);
+    };
+    // 尽量不要在原型中添加属性
+    // 公共的属性和一些常量的值可以放在原型上去
+    var s = new Sprite();
+    // 给对象添加新属性时直接在外部通过添加
+    s.age = 22;
+    s.name = "印乐";
+    s.show();
+*/
+
+    // 在函数中添加属性
+  /*  function Sprite(name, age){
+        this.age = 22;
+        this.name = 'yl';
+    }
+
+    Sprite.prototype.show = function () {
+        console.log(this.name);
+    }
+    var s = new Sprite('123',32);
+    s.show();*/
+
+    // 再升级
+   /* function Sprite(option){
+        this.age = option.age;
+        this.name = option.name;
+    }
+
+    Sprite.prototype.show = function () {
+        console.log(this.name);
+    };
+    var s = new Sprite({
+        name: 'px',
+        age: '20'
+    });
+    s.show();*/
+
+    // 最终的方法
+    function Sprite(option){
+        this._init(option);
+    }
+
+    /*Sprite.prototype._init = function () {
+        this.name = option.name;
+        this.age = option.age;
+    }
+    Sprite.prototype.show = function () {
+        console.log(this.name);
+    }*/
+
+    //上面代码优化后
+
+    Sprite.prototype = {
+        _init : function (option) {// 加下划线进行区分，这个仅用于内部调用
+            // 下面属性是原始属性
+            this.name = option.name;
+            this.age = option.age;
+            this.color = 'red';
+        },
+        show : function () {
+            console.log(this.name);
+        }
+    };
+    var s = new Sprite({
+        name : 'yl',
+        age : 22
+    });
+    s.show();
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;}
+        div{
+            height: 300px;
+            width: 300px;
+            background-color: #ccc;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">确认</button>
+<div id="div"></div>
+</body>
+</html>
+<script src="../../../practice.js"></script>
+<script>
+    // 案例：将一个物体在5秒内从0px移动到500px
+    //
+
+
+    // 定义变量
+    var btn = document.getElementById('btn');
+    var div = document.getElementById('div');
+    // 运动开始时间
+    var now = +new Date();// 获取当前时间 并转为毫秒值
+    /* var yongshi = pass - now;*/
+    /* tween： 动画时间进程 */
+    /* 用时/总时间 */
+    /* 用时：已经走的时间  减  开始时间*/
+    /*var tween = yongshi / 5000;*/
+    var tween = 0;
+    var timer;
+    // 绑定事件
+    btn.onclick = function () {
+        timer = setInterval(move, 30);
+    };
+
+
+
+
+
+    function getTween(now, pass, all){
+        var yongshi = pass - now;
+        var tween = yongshi / all;
+        return tween;
+    }
+
+    function stop(){
+        clearInterval(timer);
+    }
+
+
+    function oneProperty(id, name, start, juli, tween){
+        $$.css(id, name, start+juli*tween + 'px');
+        /*dom.style[name]= (start+juli*tween)+'px' */
+    }
+
+
+    function move(){
+        if(tween >= 1){
+            /* 停止动画 */
+            stop();
+        }else{
+            // 计算现在的时间
+            var pass = +new Date();
+            tween = getTween(now, pass, 5000);
+
+            oneProperty('div', 'left', 0, 400, tween);
+            oneProperty('div', 'height', 0, 400, tween);
+            oneProperty('div', 'width', 0, 400, tween);
+
+            // s = 总距离 * 进程
+            // div.style.left = juli * tween + 'px';
+        }
+    }
+
+
+
+
+    function animate(){
+
+    }
+</script>

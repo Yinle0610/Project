@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03_面向对象版本的精灵图</title>
+    <script src="js/Sprite.js"></script>
+</head>
+<body>
+<div>
+ <canvas id="cavsElem">
+  </canvas>
+</div>
+<button id="up">↑</button>
+<button id="down">↓</button>
+<button id="left">←</button>
+<button id="right">→</button>
+  <script>
+  (function() {
+         var canvas = document.querySelector('#cavsElem');
+         var ctx = canvas.getContext('2d');
+
+         canvas.width = 600;
+         canvas.height = 600;
+         canvas.style.border = "1px solid #000";
+
+      // 封装一个对象
+      // 属性：width、height、imgSrc、speed、direction
+      // 行为：render  changeDir
+      var s = new Sprite({
+          x: 300,
+          y: 300,
+          w: 80,
+          h: 65*2,
+          fps: 4,
+          originW: 40,
+          originH: 65,
+          imgSrc: '../imgs/gameImgs/DMMban.png'
+      });
+      s.render(ctx);
+
+
+      var btnright = document.getElementById('right');
+      btnright.onclick = function () {
+          s.changeDir('right');
+      };
+      var btnup = document.getElementById('up');
+      btnup.onclick = function () {
+          s.changeDir('up');
+      };
+      var btndown = document.getElementById('down');
+      btndown.onclick = function () {
+          s.changeDir('down');
+      };
+      var btnleft = document.getElementById('left');
+      btnleft.onclick = function () {
+          s.changeDir('left');
+      };
+     })();
+   </script>
+</body>
+</html>

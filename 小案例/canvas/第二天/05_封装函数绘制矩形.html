@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装函数绘制矩形</title>
+    <script src="js/Rect.js"></script>
+</head>
+<body>
+<div class="container">
+ <canvas id="cavsElem1" width="600" height="600" style="border: 1px solid rgb(0,0,0)">
+  </canvas>
+ <canvas id="cavsElem2" width="600" height="600" style="border: 1px solid rgb(0,0,0)">
+     你的浏览器不支持canvas，请升级浏览器
+ </canvas>
+    </div>
+<img src="" id="imgId" alt="">
+  <script>
+  (function() {
+         var canvas1 = document.querySelector('#cavsElem1');
+         var canvas2 = document.querySelector('#cavsElem2');
+         var ctx1 = canvas1.getContext('2d');
+         var ctx2 = canvas2.getContext('2d');
+
+      var yl = new Rect({
+          x : 100,
+          y : 100,
+          w : 100,
+          h : 100,
+          rotation: 30,
+          fillStyle : 'purple',
+          opacity: .6,
+          strokeStyle : 'red'
+      });
+      yl.render( ctx1 );
+
+
+      // 把canvas转化为一个图片
+      /*var img = document.getElementById('imgId');
+      img.src = canvas1.toDataURL('image/png');*/
+     /* console.log(canvas1.toDataURL('image/jpeg',.6));*/
+      setInterval(function () {
+          ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+          yl.x += 10;
+          yl.render(ctx1);
+          // 把canvas输出到一张图片上
+          /* var img = document.getElementById('imgId');
+          img.src = canvas1.toDataURL('image/png');*/
+
+          // 把一个画布渲染到另一个画布上
+          ctx2.drawImage(canvas1, 0, 0);
+
+      },100)
+     })();
+
+   </script>
+</body>
+</html>

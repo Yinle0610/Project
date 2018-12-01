@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	window.onload = function(){
+		function jiaoji(){
+		var a = prompt("请输入第一个区间的第一个数");
+		var b = prompt("请输入第一个区间的第二个数");
+		var c = prompt("请输入第二个区间的第二个数");
+		var d = prompt("请输入第二个区间的第二个数");
+		var arr3 = [];
+		var  arr1 = [a,b];
+		var  arr2 = [c,d];
+		if(a <= c && b >= d){
+			arr3 = [c,d];
+		}else if(a >= c && b >= d){
+			arr3 = [a,d];
+		}else if(a <= c && b <= d){
+			arr3 = [c,b];
+		}else{
+			arr3 = [a,b];
+		}
+		alert("交集为:"+'['+arr3+']');
+	};
+	jiaoji();
+}
+	</script>
+</body>
+</html>

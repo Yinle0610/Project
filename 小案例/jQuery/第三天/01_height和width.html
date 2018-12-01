@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("div").css(
+                    {
+                        "backgroundColor":"pink",
+                        //"height":"120px",
+                    }
+            );
+            // 设置高度
+            $("button:first").click(function () {
+                $("div").height("300px");
+            });
+            // 获取高度
+            $("button:eq(1)").click(function () {
+               $("div").html($("div").height());
+            });
+            // 设置宽度
+            $("button:eq(2)").click(function () {
+                $("div").width("600px");
+            });
+            // 获取宽度
+            $("button:eq(3)").click(function () {
+                $("div").html($("div").width());
+            });
+            $("button:eq(4)").click(function () {
+                console.log("这是height()获取的高度"+$("div").height());
+                console.log("这是height()获取的高度类型"+typeof $("div").height());
+                console.log("这是css()获取的高度"+$("div").css("height"));
+                console.log("这是css()获取的高度类型"+typeof $("div").css("height"));
+            });
+            })
+    </script>
+</head>
+<body>
+<button>设置高度</button>
+<button>获取高度</button>
+<button>设置宽度</button>
+<button>获取宽度</button>
+<button>对比height 与css方法获取的高度</button>
+<div></div>
+</body>
+</html>

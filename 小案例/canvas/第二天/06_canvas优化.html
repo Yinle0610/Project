@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas优化</title>
+    <script src="js/Rect.js"></script>
+</head>
+<body>
+ <canvas id="cavsElem">
+  </canvas>
+  <script>
+      // 使用隐藏canvas然后转化为图片渲染到用户界面的canvas上
+      // 节省了内存空间
+  (function() {
+      var canvas = document.querySelector('#cavsElem');
+      var ctx = canvas.getContext('2d');
+
+      canvas.width = 600;
+      canvas.height = 600;
+      canvas.style.border = "1px solid #000";
+      var canvasHide = document.createElement('canvas');
+      canvasHide.height = canvas.height;
+      canvasHide.width = canvas.width;
+      var ctxHide = canvasHide.getContext('2d');
+
+    /*  var px1 = new Rect({
+          x : 100,
+          y : 100,
+          h : 100,
+          w : 100,
+          fillStyle : 'pink',
+          strokeStyle : 'yellow',
+          opacity :.6,
+          rotation : 60,
+          scaleX : 1,
+          scaleY : 1
+      });
+      px1.render( ctxHide );
+
+
+      var px2 = new Rect({
+         x : 200,
+         y : 200,
+         h : 100,
+         w : 100,
+         fillStyle : 'pink',
+         strokeStyle : 'yellow',
+         opacity :.6,
+         rotation : 60,
+         scaleX : 1,
+         scaleY : 1
+  });
+      px2.render(ctxHide);
+*/
+      for(var i = 0; i < 100; i ++){
+          var px = new Rect({
+              x : Math.random() * 100,
+              y : Math.random() * 100,
+              w : Math.random() * 100,
+              h : Math.random() * 100,
+              rotation : Math.random() * 90,
+              opacity : Math.random()
+          });
+          px.render(ctxHide);
+      }
+      ctx.drawImage(canvasHide, 0, 0);
+  })();
+   </script>
+</body>
+</html>

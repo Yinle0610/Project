@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 第三种创建对象的方法
+    function Cat(){
+        name = '123';
+        age = 22;
+    }
+    var cat = new Cat();
+    var cat1 = new Cat();
+    // cat与cat1是两个独立的对象;
+    cat.hobby = '22';// 给cat添加属性不会影响cat1的属性;
+
+
+    // 创建对象升级
+    function Bird(){
+        age = 22;
+    }
+    Bird.prototype.show = function () {
+        console.log(this.age);
+    };
+    var bird = new Bird();
+    var bird1 = new Bird();
+
+    bird.age = 20;
+    bird1.age = 21;
+
+    bird.show();
+    bird1.show();
+
+    //再升级一下
+    function Px( option){
+        this.age = option.age;
+        this.x = option.x;
+    }
+    Px.prototype.show = function () {
+        console.log("age:" + this.age);
+    };
+    var px = new Px({
+        x : 18,
+        age : 20
+    });
+    px.show();
+
+    // 再升级 - -
+    function Yl( option ){
+        // this.age = option.age;
+        // this.x = option.x;
+        this._init(option);
+    }
+    Yl.prototype = {
+        _init: function ( option ){
+            this.age = option.age || "";
+        },
+        show : function (){
+            console.log(this.age);
+        }
+    };
+    var yl = new Yl({
+        x : 18,
+        age : 22
+    });
+    yl.show();
+
+</script>
+</body>
+</html>

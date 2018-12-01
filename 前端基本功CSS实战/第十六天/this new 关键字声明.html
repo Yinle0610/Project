@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Person(name,age){
+        this.age = age;
+        this.name = name;
+        this.showAge = function () {
+            alert("年龄"+ this.age);
+        }
+        this.showName = function () {
+            alert("名字" + this.name);
+        }
+    }
+    var demo = new Person("小明",18);
+    console.log(demo.name);
+    console.log(demo.age);
+    demo.showAge();
+    demo.showName();
+</script>

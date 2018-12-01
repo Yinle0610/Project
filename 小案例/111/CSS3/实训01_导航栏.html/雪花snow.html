@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: #000;
+        }
+        div{
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin: 200px;
+            transform-origin:-60px 0;   /* 定位绕着哪个位置旋转*/
+            -webkit-animation: falling 3s linear infinite;
+        }
+        @-webkit-keyframes  falling {
+            0%{
+                opacity: 1;
+                transform: translate3d(0,0,0) rotate(0deg);
+            }
+            100%{
+                opacity: 0.3;
+                transform: translate3d(0,400px,0) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

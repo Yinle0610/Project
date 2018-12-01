@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .my-progress{
+            -webkit-appearance: none;
+        }
+        .content::after{
+            content:'bbbbb';
+            color: #f00;
+        }
+        .my-progress::-webkit-progress-bar{
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="content">aaa<after></after></div>
+ <!--数据列表呈现需要载体-->
+<datalist id="input-list">
+    <option value="老马"></option>
+    <option value="李四"></option>
+</datalist>
+ <input type="text" list="input-list">
+<br/>
+<!--进度条-->
+<!--状态指示器-->
+<progress></progress>
+<progress class="my-progress" value="10" max="100"></progress>
+<meter min="0" max="100" low="40" height="90" optimum="100" value="91">A+</meter>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	window.onload = function(){
+		function spiralArray(num){
+			var n = 2*num +1;
+			var a = new Array(n);
+			for(var i = 0; i <= n; i++){
+				a[i] = new Array(n);
+			}
+			for(var i = 0; i <= n - 1; i++){
+				for(var j =0; j <= n - 1; j++){
+					a[i][j] = 0;
+				}
+			}
+			a[num][num] = 1;
+
+			function arrR(e){
+				for(var k = 1; k <= 2*i; k++){
+					a[k + num - i][num + i] = k + a[num - i + 1][num + i - 1];
+				}
+			}
+
+			function arrD(e){
+				for(var k = 1; k <= 2*i; k++){
+					a[num + i][num + i - k] = k + a[num + i][num + i];
+				}
+			}
+
+			function arrL(e){
+				for(var k = 1; k <= 2*i; k++){
+					a[num + i - k][num - i] = k + a[num + i][num -i];
+				}
+			}
+
+			function arrU(e){
+				for(var k = 1; k <= 2*i; k++){
+					a[num - i][num -i +k] = k + a[num - i][num - i];
+				}
+			}
+
+			if(num >= 0){
+				for(var i = 1; i <= num; i++){
+					arrR(i);
+					arrD(i);
+					arrL(i);
+					arrU(i);
+
+				}
+			}
+
+			document.write("<table style='text-align:center;'>");
+			for(var i = 0; i <= n - 1; i++){
+				document.write("<tr>")
+				for(var j = 0; j <= n-1; j++){
+					document.write("<td>"+a[i][j]+"</td>");
+				}
+				document.write("</tr>");
+			}
+		}
+		document.write("</table>");
+
+
+		spiralArray(3);
+	}
+
+	</script>
+</body>
+</html>
